@@ -14,7 +14,7 @@ btnClick.addEventListener('click', function(e) {
   xhr.onload = function () {
     if(xhr.status ===200) {
       var inputResult = document.getElementById('searchResult');
-      var theResponse = JSON.parse(xhr.responseText);
+      var apiResponse = JSON.parse(xhr.responseText);
       
       //for theresponse
 
@@ -24,7 +24,7 @@ btnClick.addEventListener('click', function(e) {
 
         //append elements to dom
 
-      console.log(theResponse);
+      console.log(apiResponse);
     }
   }
   var keyword = document.getElementById('searchText').value;

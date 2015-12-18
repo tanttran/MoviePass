@@ -10,12 +10,10 @@ router.post('/', function(req, res) {
   var keyword = req.body;
   var requestUrl = 'http://api.themoviedb.org/3/search/movie?api_key=5e7c67dc92a8469124e97038b3422c88&query='+ keyword;
   console.log(requestUrl);
-  request( requestUrl,
+  request(requestUrl,
     function(error, response, body){
       if(response.statusCode == 200) {
-        // var info = JSON.parse(body);
         res.send(body);
-
       } else {
         console.log(error);
       }
