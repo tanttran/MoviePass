@@ -13,7 +13,9 @@ router.post('/', function(req, res) {
   request( requestUrl,
     function(error, response, body){
       if(response.statusCode == 200) {
+        // var info = JSON.parse(body);
         res.send(body);
+
       } else {
         console.log(error);
       }

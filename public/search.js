@@ -14,7 +14,17 @@ btnClick.addEventListener('click', function(e) {
   xhr.onload = function () {
     if(xhr.status ===200) {
       var inputResult = document.getElementById('searchResult');
-      inputResult.textContent = xhr.responseText;
+      var theResponse = JSON.parse(xhr.responseText);
+      
+      //for theresponse
+
+        //create elements
+
+        //append data from object
+
+        //append elements to dom
+
+      console.log(theResponse);
     }
   }
   var keyword = document.getElementById('searchText').value;
