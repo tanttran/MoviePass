@@ -1,10 +1,12 @@
 var express = require('express');
 var app = express();
-var api = require('./routes/api.js');
+var tmdb = require('./routes/tmdb.js');
+
 
 app.use(express.static('public'));
 
-app.use('/routes/search', api);
+app.use('/movie', tmdb);
+
 
 app.listen(1337);
 console.log('1337 is Listening');
