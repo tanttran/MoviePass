@@ -33,5 +33,17 @@ router.post('/popular', function(req, res) {
     });
 });
 
+router.post('/top_rated', function(req, res) {
+  var requestTop = 'http://api.themoviedb.org/3/movie/top_rated?api_key=5e7c67dc92a8469124e97038b3422c88';
+  console.log(requestTop);
+  request(requestTop,
+    function(error, response, body){
+      if(response.statusCode == 200) {
+        res.send(body);
+      } else {
+        console.log(error);
+      }
+    });
+});
 
 module.exports = router;
