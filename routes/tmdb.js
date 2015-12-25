@@ -34,9 +34,22 @@ router.post('/popular', function(req, res) {
 });
 
 router.post('/top_rated', function(req, res) {
-  var requestTop = 'http://api.themoviedb.org/3/movie/top_rated?api_key=5e7c67dc92a8469124e97038b3422c88';
-  console.log(requestTop);
-  request(requestTop,
+  var requestTopRated = 'http://api.themoviedb.org/3/movie/top_rated?api_key=5e7c67dc92a8469124e97038b3422c88';
+  console.log(requestTopRated);
+  request(requestTopRated,
+    function(error, response, body){
+      if(response.statusCode == 200) {
+        res.send(body);
+      } else {
+        console.log(error);
+      }
+    });
+});
+
+router.post('/upcoming', function(req, res) {
+  var requestUpComing = 'http://api.themoviedb.org/3/movie/upcoming?api_key=5e7c67dc92a8469124e97038b3422c88';
+  console.log(requestUpComing);
+  request(requestUpComing,
     function(error, response, body){
       if(response.statusCode == 200) {
         res.send(body);
