@@ -21,7 +21,15 @@ clickSearch.addEventListener('click', function(e) {
 
       var searchResult = "";
       apiResponse.results.forEach(function(value, index) {
-      searchResult += "<h3 id='movieTitle'>" + value.title + "</h3>" + "<p>" + value.poster_path + "</p>"; 
+      searchResult += 
+                      "<div class='col-md-6'>" +
+                      "<div class='col-md-5'>" +
+                      "<img class='thumbnail img-responsive' src='http://image.tmdb.org/t/p/w500/fYzpM9GmpBlIC893fNjoWCwE24H.jpg' width='185px' height='275px'>" +
+                      "</div>" + value.vote_average + 
+                      "<span class='fa fa-star'>" + "</span>" +
+                      "<h4 id='movieTitle'>" + value.title + "</h4>" + 
+                      "<p>" + value.overview + "</p>" +
+                      "</div>";
       });
       document.getElementById('searchResult').innerHTML = searchResult;
 
