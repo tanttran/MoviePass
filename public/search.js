@@ -24,7 +24,8 @@ clickSearch.addEventListener('click', function(e) {
       searchResult += 
                       "<div class='col-md-6'>" +
                       "<div class='col-md-5'>" +
-                      "<img class='thumbnail img-responsive' src='http://image.tmdb.org/t/p/w500/fYzpM9GmpBlIC893fNjoWCwE24H.jpg' width='185px' height='275px'>" +
+                      "<img class='thumbnail img-responsive' src='http://image.tmdb.org/t/p/w500/"
+                       +  value.poster_path + "'' width='185px' height='275px'>"
                       "</div>" + value.vote_average + 
                       "<span class='fa fa-star'>" + "</span>" +
                       "<h4 id='movieTitle'>" + value.title + "</h4>" + 
@@ -58,7 +59,8 @@ clickPopular.addEventListener('click', function(e) {
       apiResponse.results.forEach(function(value, index) {   
       searchResult += "<div class='col-md-6'>" +
                       "<div class='col-md-5'>" +
-                      "<img class='thumbnail img-responsive' src='http://image.tmdb.org/t/p/w500/fYzpM9GmpBlIC893fNjoWCwE24H.jpg' width='185px' height='275px'>" +
+                      "<img class='thumbnail img-responsive' src='http://image.tmdb.org/t/p/w500/"
+                       +  value.poster_path + "' width='185px' height='275px'>" +
                       "</div>" + value.vote_average + 
                       "<span class='fa fa-star'>" + "</span>" +
                       "<h4 id='movieTitle'>" + value.title + "</h4>" + 
