@@ -1,13 +1,13 @@
-p {
+/*p {
   font-size: 14px;
-  /*border: 1px solid;
-*/  height: 150px;
-  /*white-space: nowrap;*/
+  border: 1px solid;
+  height: 150px;
+  white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-}
+}*/
 
-#movieTitle {
+h1, h2, h3, h4, h5, h6 {
   color: red;
 }
 
