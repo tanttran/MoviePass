@@ -22,7 +22,7 @@ clickSearch.addEventListener('click', function(e) {
       var searchResult = "";
       apiResponse.results.forEach(function(value, index) {
       searchResult += "<div class='col-md-6'>" +
-                      "<div class='col-md-5'>" +
+                      "<div class='col-md-12'>" +
                       "<img class='thumbnail img-responsive' src='http://image.tmdb.org/t/p/w500/"
                        +  value.poster_path + "' width='185px' height='275px'>" +
                       "</div>" + value.vote_average + 
@@ -63,7 +63,7 @@ clickPopular.addEventListener('click', function(e) {
                       "</div>" + value.vote_average + 
                       "<span class='fa fa-star'>" + "</span>" +
                       "<h4 id='movieTitle'>" + value.title + "</h4>" + 
-                      "<p>" + value.overview + "</p>" +
+                      "<p id='overview'>" + value.overview + "</p>" +
                       "</div>";
                        
       });
