@@ -94,3 +94,11 @@ input:focus {
 #mainTitle {
   color: red;
 }
+
+::-webkit-input-placeholder::before { 
+  font-family: fontAwesome;
+  font-size: 18px;
+  margin-left: -20px; 
+  content:'\f002  '; 
+  color: red; 
+}
