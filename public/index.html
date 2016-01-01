@@ -10,13 +10,14 @@
 </head>
 <body>
   <div class="header">
-   <h1 class="text-center">MoviePass</h1>
+   <h1 class="text-center" id="mainTitle">MoviePass</h1><br>
  </div>       
  <div id="searchArea">
   <form class="" id="searchForm">
-    <div id="">
-      <input type="text" class="center-block" placeholder="Search" value="" name="search" id="searchText"><br>
-      <input type="submit" class="center-block" id="searchButton" value="submit">
+    <div class="searchField">
+      <!-- <i class="fa fa-search fa-lg" id="searchGlass"></i> -->
+      <input type="text" class="center-block" autocomplete="off" placeholder="Search Movies" value="" name="search" id="searchText"><br>
+      <button type="submit" class="center-block" id="searchButton" value="Find Movies">Find Movies</button>
     </div>
   </form>
 </div><br>
@@ -24,6 +25,7 @@
 </div>
 <div class="container">
   <ul class="list-inline">
+    <li class=""><a href="#" id="nowPlaying">Now Playing</a></li>
     <li class=""><a href="#" id="popular">Popular Movies</a></li>
     <li class=""><a href="#" id="topRated">Top Rated Movies</a></li>
     <li class=""><a href="#" id="upComing">Upcoming Movies</a></li>
