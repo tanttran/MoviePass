@@ -6,8 +6,6 @@ input:focus {
 .mainPopular {
   max-width: 540px;
   max-height: 400px;
-  /*border: 1px double;*/
-  /*padding: 8px;*/
   margin-bottom: 25px;
 
   background: #fcfcfc;
