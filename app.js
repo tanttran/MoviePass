@@ -1,12 +1,12 @@
 var express = require('express');
 var app = express();
 var tmdb = require('./routes/tmdb.js');
-
+var genres = require('./genres.json');
 
 app.use(express.static('public'));
 
 app.use('/movie', tmdb);
-// app.locals.genres = require('./genres.json');
+app.locals.genres = require('./genres.json');
 
 
 app.listen(1337);

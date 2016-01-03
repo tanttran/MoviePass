@@ -6,6 +6,19 @@ var textParser = bodyParser.text();
 
 router.use(textParser);
 
+router.post('/nowPlaying', function(req, res) {
+  var requestNowPlaying = 'http://api.themoviedb.org/3/movie/now_playing?api_key=5e7c67dc92a8469124e97038b3422c88';
+  console.log(requestNowPlaying);
+  request(requestNowPlaying,
+    function(error, response, body){
+      if(response.statusCode == 200) {
+        res.send(body);
+      } else {
+        console.log(error);
+      }
+    });
+});
+
 router.post('/popular', function(req, res) {
   var requestPopular = 'http://api.themoviedb.org/3/movie/popular?api_key=5e7c67dc92a8469124e97038b3422c88';
   console.log(requestPopular);
@@ -33,18 +46,6 @@ router.post('/search', function(req, res) {
     });
 });
 
-router.post('/nowPlaying', function(req, res) {
-  var requestNowPlaying = 'http://api.themoviedb.org/3/movie/now_playing?api_key=5e7c67dc92a8469124e97038b3422c88';
-  console.log(requestNowPlaying);
-  request(requestNowPlaying,
-    function(error, response, body){
-      if(response.statusCode == 200) {
-        res.send(body);
-      } else {
-        console.log(error);
-      }
-    });
-});
 
 router.post('/top_rated', function(req, res) {
   var requestTopRated = 'http://api.themoviedb.org/3/movie/top_rated?api_key=5e7c67dc92a8469124e97038b3422c88';
