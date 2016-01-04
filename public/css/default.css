@@ -73,6 +73,15 @@ input:focus {
   margin-left: 480px;
 }
 
+#background-one {
+  background-image: url("http://images1.villagevoice.com/imager/u/745xauto/7948461/1-october-village-voice-indoor-movie-alternatives-fiaf_michael_george_.jpeg");
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+ /* width: 1500px;*/
+  height: 190px;
+}
+
 #searchText {
   color: black;
   width: 450px;

@@ -3,35 +3,46 @@
 <head>
   <meta charset="UTF-8"> 
   <title>MoviePass</title> 
+  
   <link rel="stylesheet" href="css/default.css">
+  <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
 
 </head>
 <body>
-  <div class="header">
-   <h1 class="text-center" id="mainTitle">MoviePass</h1><br>
- </div>       
- <div id="searchArea">
-  <form class="" id="searchForm">
-    <div class="searchField">
-      <input type="text" class="center-block" autocomplete="off" placeholder="Search Movies" value="" name="search" id="searchText"><br>
-      <button type="submit" class="center-block" id="searchButton" value="Find Movies">Find Movies</button>
-    </div>
-  </form>
-</div><br>
+  <div class="#" id="background-one">
+    <div class="#">
+     <h1 class="text-center" id="mainTitle">MoviePass</h1><br>
+   </div>       
+   <div id="searchArea">
+    <form class="" id="searchForm">
+      <div class="searchField">
+        <input type="text" class="center-block" autocomplete="off" placeholder="Search Movies" value="" name="search" id="searchText"><br>
+        <button type="submit" class="center-block" id="searchButton" value="Find Movies">Find Movies</button>
+      </div>
+    </form>
+  </div>
+</div>
 <div class="navbar navbar-inverse navbar-static-top" role="navigation">
 </div>
 <div class="container">
   <ul class="list-inline">
+    <li class=""><a href="#" id="nowPlaying">Now Playing</a></li>
     <li class=""><a href="#" id="popular">Popular Movies</a></li>
     <li class=""><a href="#" id="topRated">Top Rated Movies</a></li>
     <li class=""><a href="#" id="upComing">Upcoming Movies</a></li>
   </ul>
 </div>
 <div class="container">
-  <div id="searchResult">
+  <div class="col-md-12">
+    <h3 class="playing" href="#" id="now-playing">Now Playing in Theaters...</h3>
+    <h3 href="#" id="popular-movies">Popular Movies...</h3>
+    <h3 href="#" id="top-movies">Top Rated Movies...</h3>
+    <h3 href="#" id="upcoming-movies">Upcoming Movies...</h3>
+    <h3 href="#" id="search-results">Search Results...</h3>
   </div>
+  <p id="searchResult"></p>
 </div>
 <script src="apiCall.js"></script>
 </body>
