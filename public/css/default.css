@@ -3,6 +3,11 @@ input:focus {
     outline: 0;
 }
 
+.section {
+  font-size: 16px;
+  color: red;
+}
+
 .mainPopular {
   max-width: 540px;
   max-height: 400px;
@@ -74,12 +79,12 @@ input:focus {
 }
 
 #background-one {
-  background-image: url("http://images1.villagevoice.com/imager/u/745xauto/7948461/1-october-village-voice-indoor-movie-alternatives-fiaf_michael_george_.jpeg");
+  background-image: url("../image/movie-one.jpg");
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
  /* width: 1500px;*/
-  height: 190px;
+  height: 225px;
 }
 
 #searchText {
@@ -99,7 +104,7 @@ input:focus {
 }
 
 #mainTitle {
-  color: red;
+  color: white;
 }
 
 ::-webkit-input-placeholder::before { 
@@ -109,3 +114,13 @@ input:focus {
   content:'\f002  '; 
   color: red; 
 }
+
+#navbar {
+  color: yellow;
+}
+
+
+
+
+
+
