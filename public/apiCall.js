@@ -1,3 +1,40 @@
+$(document).ready(function(){
+  var hidden = function(){
+$('#now-playing').hide();
+$('#popular-movies').hide();
+$('#top-movies').hide();
+$('#upcoming-movies').hide();
+$('#search-results').hide();
+};
+hidden();
+$('#now-playing').show();
+
+
+$('#nowPlaying').click(function(){
+  hidden();
+  $('#now-playing').show();
+})
+
+$('#popular').click(function(){
+  hidden();
+  $('#popular-movies').show();
+})
+
+$('#topRated').click(function(){
+  hidden();
+  $('#top-movies').show();
+})
+
+$('#upComing').click(function(){
+  hidden();
+  $('#upcoming-movies').show();
+})
+
+$('#searchButton').click(function(){
+  hidden();
+  $('#search-results').show();
+})
+
 var clickNowPlaying = document.getElementById('nowPlaying');
 var searchResult = document.getElementById('searchResult');
 var clickPopular = document.getElementById('popular');
@@ -92,6 +129,9 @@ window.onload = function() {
   apiCall("nowPlaying");
 }
 
+clickNowPlaying.addEventListener('click', function(e) {
+  apiCall("nowPlaying");
+}, false);
 
 clickPopular.addEventListener('click', function(e) {
   apiCall("popular");
@@ -143,7 +183,7 @@ clickSearch.addEventListener('click', function(e) {
         divTwo.appendChild(imageOne);
 
         var divSeven = document.createElement('div');
-        divSeven.setAttribute('id', 'seven');
+        divSeven.setAttribute('class', 'titleRating');
         divThree.appendChild(divSeven);
 
         var divFive = document.createElement('div');
@@ -165,6 +205,14 @@ clickSearch.addEventListener('click', function(e) {
         rating.setAttribute('class', 'fa fa-star');
         paraTwo.appendChild(rating);
 
+        var divNine = document.createElement('div');
+        divNine.setAttribute('class', 'col-md-12');
+        var paraThree = document.createElement('p');
+        paraThree.setAttribute('class', 'genres');
+        paraThree.textContent = apiResponse.results[i].genre_ids;
+        divNine.appendChild(paraThree);
+        divThree.appendChild(divNine);
+
         var divSix = document.createElement('div')
         divSix.setAttribute('class', 'col-md-12');
         var paraOne = document.createElement('p');
@@ -182,3 +230,4 @@ clickSearch.addEventListener('click', function(e) {
   xhr.send(keyword);
 }, false);
 
+});
