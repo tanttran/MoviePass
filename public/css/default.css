@@ -31,13 +31,19 @@ input:focus {
 
 .rating {
   margin-top: 10px;
+  
 }
 
 .title {
   font-size: 16px;
   color: red;
+  font-weight: bold;
 }
 
+.genres {
+  color: blue;
+  font-style: oblique;
+}
 .overview {
   display: block;
   display: -webkit-box;

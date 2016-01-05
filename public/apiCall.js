@@ -1,39 +1,4 @@
 $(document).ready(function(){
-  var hidden = function(){
-$('#now-playing').hide();
-$('#popular-movies').hide();
-$('#top-movies').hide();
-$('#upcoming-movies').hide();
-$('#search-results').hide();
-};
-hidden();
-$('#now-playing').show();
-
-
-$('#nowPlaying').click(function(){
-  hidden();
-  $('#now-playing').show();
-})
-
-$('#popular').click(function(){
-  hidden();
-  $('#popular-movies').show();
-})
-
-$('#topRated').click(function(){
-  hidden();
-  $('#top-movies').show();
-})
-
-$('#upComing').click(function(){
-  hidden();
-  $('#upcoming-movies').show();
-})
-
-$('#searchButton').click(function(){
-  hidden();
-  $('#search-results').show();
-})
 
 var clickNowPlaying = document.getElementById('nowPlaying');
 var searchResult = document.getElementById('searchResult');
@@ -103,11 +68,55 @@ var apiCall = function(route) {
         divNine.setAttribute('class', 'col-md-12');
         var paraThree = document.createElement('p');
         paraThree.setAttribute('class', 'genres');
-        paraThree.textContent = apiResponse.results[i].genre_ids[i];
-        // paraThree.appendChild(genres);
         divNine.appendChild(paraThree);
         divThree.appendChild(divNine);
 
+        for (var j = 0; j < apiResponse.results[i].genre_ids.length; j++){
+          var value = apiResponse.results[i].genre_ids[j];
+          console.log(value);
+          if (value==28) {
+            paraThree.textContent += 'Action, ';
+          }else if (value ==12) {
+            paraThree.textContent += 'Adventure, ';
+          }else if (value ==16) {
+            paraThree.textContent += 'Animation, ';
+          }else if (value ==35) {
+            paraThree.textContent += 'Comedy, ';
+          }else if (value ==80) {
+            paraThree.textContent += 'Crime, ';
+          }else if (value ==99) {
+            paraThree.textContent += 'Documentary, ';
+          }else if (value ==18) {
+            paraThree.textContent += 'Drama, ';
+          }else if (value ==10751) {
+            paraThree.textContent += 'Family, ';
+          }else if (value ==14) {
+            paraThree.textContent += 'Fantasy, ';
+          }else if (value ==10769) {
+            paraThree.textContent += 'Foreign, ';
+          }else if (value ==36) {
+            paraThree.textContent += 'History, ';
+          }else if (value ==27) {
+            paraThree.textContent += 'Horror, ';
+          }else if (value ==10402) {
+            paraThree.textContent += 'Music, ';
+          }else if (value ==9648) {
+            paraThree.textContent += 'Mystery, ';
+          }else if (value ==10749) {
+            paraThree.textContent += 'Romance, ';
+          }else if (value ==878) {
+            paraThree.textContent += 'Science Fiction, ';
+          }else if (value ==10770) {
+            paraThree.textContent += 'TV Movie, ';
+          }else if (value ==53) {
+            paraThree.textContent += 'Thriller, ';
+          }else if (value ==10752) {
+            paraThree.textContent += 'War, ';
+          }else if (value ==37) {
+            paraThree.textContent += 'Western, ';
+          }
+        }
+        
         var divSix = document.createElement('div')
         divSix.setAttribute('class', 'col-md-12');
         var paraOne = document.createElement('p');
@@ -229,5 +238,42 @@ clickSearch.addEventListener('click', function(e) {
   xhr.open('POST', 'http://localhost:1337/movie/search', true);
   xhr.send(keyword);
 }, false);
+
+var hidden = function(){
+$('#now-playing').hide();
+$('#popular-movies').hide();
+$('#top-movies').hide();
+$('#upcoming-movies').hide();
+$('#search-results').hide();
+};
+hidden();
+$('#now-playing').show();
+
+
+$('#nowPlaying').click(function(){
+  hidden();
+  $('#now-playing').show();
+})
+
+$('#popular').click(function(){
+  hidden();
+  $('#popular-movies').show();
+})
+
+$('#topRated').click(function(){
+  hidden();
+  $('#top-movies').show();
+})
+
+$('#upComing').click(function(){
+  hidden();
+  $('#upcoming-movies').show();
+})
+
+$('#searchButton').click(function(){
+  hidden();
+  $('#search-results').show();
+})
+
 
 });
