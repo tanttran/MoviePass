@@ -11,6 +11,7 @@
 
 </head>
 <body>
+
   <div class="#" id="background-one">
     <div class="container">
      <h1 class="text-center" id="mainTitle">MoviePass</h1><br>
@@ -26,24 +27,36 @@
 </div>
 <div class="navbar navbar-inverse navbar-static-top" role="navigation">
 </div>
-<div class="container">
-  <ul class="list-inline">
-    <li class="#"><a href="#" class="section" id="nowPlaying">Now Playing</a></li>
-    <li class="#"><a href="#" class="section" id="popular">Popular Movies</a></li>
-    <li class="#"><a href="#" class="section" id="topRated">Top Rated Movies</a></li>
-    <li class="#"><a href="#" class="section" id="upComing">Upcoming Movies</a></li>
-  </ul>
-</div>
-<div class="container">
-  <div class="col-md-12">
-    <h3 class="playing" href="#" id="now-playing">Now Playing in Theaters...</h3>
+<div class="container" id="navigateOne">
+  <div>
+    <ul class="list-inline">
+      <li class="#"><a href="#" class="section" id="nowPlaying">Now Playing</a></li>
+      <li class="#"><a href="#" class="section" id="popular">Popular Movies</a></li>
+      <li class="#"><a href="#" class="section" id="topRated">Top Rated Movies</a></li>
+      <li class="#"><a href="#" class="section" id="upComing">Upcoming Movies</a></li>
+    </ul>
+  </div>
+  <div class="col-md-12" >
+    <h3 href="#" id="now-playing">Now Playing in Theaters...</h3>
     <h3 href="#" id="popular-movies">Popular Movies...</h3>
     <h3 href="#" id="top-movies">Top Rated Movies...</h3>
     <h3 href="#" id="upcoming-movies">Upcoming Movies...</h3>
     <h3 href="#" id="search-results">Search Results...</h3>
   </div>
-  <p id="searchResult"></p>
-</div>
-<script src="apiCall.js"></script>
+  <div>
+    <p id="searchResult"></p>
+  </div>
+  <div>
+    <ul class="pager pull-right" id="navigateTwo">
+      <li ><a class="direction" href="#">&larr;Previous</a></li>
+      <li ><a class="direction" href="#">Next&rarr;</a></li>
+    </ul>
+  </div>
+
+
+
+  <script src="apiCall.js"></script>
+  <script src="paginate.js"></script>
+  <script src="custom.js"></script>
 </body>
 </html>
