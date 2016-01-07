@@ -6,6 +6,27 @@ var clickPopular = document.getElementById('popular');
 var clickSearch = document.getElementById('searchButton');
 var clickTopRated = document.getElementById('topRated');
 var clickUpComing = document.getElementById('upComing');
+var clickNowOne = document.getElementById('nowOne');
+var clickNowTwo = document.getElementById('nowTwo');
+var clickNowThree = document.getElementById('nowThree');
+var clickNowFour = document.getElementById('nowFour');
+var clickNowFive = document.getElementById('nowFive');
+var clickPopOne = document.getElementById('popOne');
+var clickPopTwo = document.getElementById('popTwo');
+var clickPopThree = document.getElementById('popThree');
+var clickPopFour = document.getElementById('popFour');
+var clickPopFive = document.getElementById('popFive');
+var clickTopOne = document.getElementById('topOne');
+var clickTopTwo = document.getElementById('topTwo');
+var clickTopThree = document.getElementById('topThree');
+var clickTopFour = document.getElementById('topFour');
+var clickTopFive = document.getElementById('topFive');
+var clickUpComingOne = document.getElementById('upOne');
+var clickUpComingTwo = document.getElementById('upTwo');
+var clickUpComingThree = document.getElementById('upThree');
+var clickUpComingFour = document.getElementById('upFour');
+var clickUpComingFive = document.getElementById('upFive');
+
 
 var apiCall = function(route) {
     var xhr = new XMLHttpRequest();
@@ -125,6 +146,7 @@ var apiCall = function(route) {
 
     }
   };
+  var number = 
   console.log('http://localhost:1337/movie/' + route);
   xhr.open('POST', 'http://localhost:1337/movie/' + route, true);
   xhr.send(null);
@@ -138,16 +160,96 @@ clickNowPlaying.addEventListener('click', function(e) {
   apiCall("nowPlaying");
 }, false);
 
+clickNowOne.addEventListener('click', function(e) {
+  apiCall("nowPlaying");
+}, false);
+
+clickNowTwo.addEventListener('click', function(e) {
+  apiCall("nowPlaying/2");
+}, false);
+
+clickNowThree.addEventListener('click', function(e) {
+  apiCall("nowPlaying/3");
+}, false);
+
+clickNowFour.addEventListener('click', function(e) {
+  apiCall("nowPlaying/4");
+}, false);
+
+clickNowFive.addEventListener('click', function(e) {
+  apiCall("nowPlaying/5");
+}, false);
+
 clickPopular.addEventListener('click', function(e) {
   apiCall("popular");
 }, false);
 
+clickPopOne.addEventListener('click', function(e) {
+  apiCall("popular");
+}, false);
+
+clickPopTwo.addEventListener('click', function(e) {
+  apiCall("popular/2");
+}, false);
+
+clickPopThree.addEventListener('click', function(e) {
+  apiCall("popular/3");
+}, false);
+
+clickPopFour.addEventListener('click', function(e) {
+  apiCall("popular/4");
+}, false);
+
+clickPopFive.addEventListener('click', function(e) {
+  apiCall("popular/5");
+}, false);
+
 clickTopRated.addEventListener('click', function(e) {
-  apiCall("top_Rated");
+  apiCall("top_rated");
+}, false);
+
+clickTopOne.addEventListener('click', function(e) {
+  apiCall("top_rated");
+}, false);
+
+clickTopTwo.addEventListener('click', function(e) {
+  apiCall("top_rated/2");
+}, false);
+
+clickTopThree.addEventListener('click', function(e) {
+  apiCall("top_rated/3");
+}, false);
+
+clickTopFour.addEventListener('click', function(e) {
+  apiCall("top_rated/4");
+}, false);
+
+clickTopFive.addEventListener('click', function(e) {
+  apiCall("top_rated/5");
 }, false);
 
 clickUpComing.addEventListener('click', function(e) {
   apiCall("upComing");
+}, false);
+
+clickUpComing.addEventListener('click', function(e) {
+  apiCall("upComing");
+}, false);
+
+clickUpComingTwo.addEventListener('click', function(e) {
+  apiCall("upComing/2");
+}, false);
+
+clickUpComingThree.addEventListener('click', function(e) {
+  apiCall("upComing/3");
+}, false);
+
+clickUpComingFour.addEventListener('click', function(e) {
+  apiCall("upComing/4");
+}, false);
+
+clickUpComingFive.addEventListener('click', function(e) {
+  apiCall("upComing/5");
 }, false);
 
 
@@ -276,40 +378,64 @@ clickSearch.addEventListener('click', function(e) {
 }, false);
 
 var hidden = function(){
-$('#now-playing').hide();
-$('#popular-movies').hide();
-$('#top-movies').hide();
-$('#upcoming-movies').hide();
-$('#search-results').hide();
+  $('#now-playing').hide();
+  $('#popular-movies').hide();
+  $('#top-movies').hide();
+  $('#upcoming-movies').hide();
+  $('#search-results').hide();
 };
+
+var hiddenPagination = function(){
+  $('#searchPage').hide();
+  $('#nowPlayingPage').hide();
+  $('#popularPage').hide();
+  $('#topRatedPage').hide();
+  $('#upComingPage').hide();
+};
+
 hidden();
+hiddenPagination();
 $('#now-playing').show();
+$('#nowPlayingPage').show();
 
 
 $('#nowPlaying').click(function(){
   hidden();
+  hiddenPagination();
   $('#now-playing').show();
+  $('#nowPlayingPage').show();
 })
+
 
 $('#popular').click(function(){
   hidden();
+  hiddenPagination();
   $('#popular-movies').show();
+  $('#popularPage').show();
 })
+
 
 $('#topRated').click(function(){
   hidden();
+  hiddenPagination();
   $('#top-movies').show();
+  $('#topRatedPage').show();
 })
+
 
 $('#upComing').click(function(){
   hidden();
+  hiddenPagination();
   $('#upcoming-movies').show();
+  $('#upComingPage').show();
 })
+
 
 $('#searchButton').click(function(){
   hidden();
+  hiddenPagination();
   $('#search-results').show();
+  $('#searchPage').show();
 })
-
 
 });

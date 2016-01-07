@@ -41,7 +41,7 @@ input:focus {
 }
 
 .genres {
-  color: blue;
+  color: #1386D8;
   font-style: oblique;
 }
 .overview {
@@ -84,6 +84,14 @@ input:focus {
   margin-left: 480px;
 }
 
+.pagination > li > a {
+  color: red;
+  margin-top: 0px;
+  font-size: 15px;
+  font-weight: bold;
+  
+}
+
 #background-one {
   background-image: url("../image/movie-one.jpg");
   background-position: center center;
@@ -91,13 +99,24 @@ input:focus {
   background-size: cover;
  /* width: 1500px;*/
   height: 225px;
+
+
 }
+
+/*#navigateOne {
+  top: 300px;
+  right: 175px;
+  position: fixed;
+}*/
+
+
 
 #searchText {
   color: black;
   width: 450px;
   height: 46px;
   border-radius: 25px;
+
 }
 
 #searchButton {
@@ -107,10 +126,13 @@ input:focus {
   color: red;
   border-radius: 10px;
   background-color: white;
+
+ 
 }
 
 #mainTitle {
   color: white;
+ 
 }
 
 ::-webkit-input-placeholder::before { 

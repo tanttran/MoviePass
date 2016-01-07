@@ -46,17 +46,65 @@
   <div>
     <p id="searchResult"></p>
   </div>
-  <div>
-    <ul class="pager pull-right" id="navigateTwo">
-      <li ><a class="direction" href="#">&larr;Previous</a></li>
-      <li ><a class="direction" href="#">Next&rarr;</a></li>
+  <div class="paginationPage" id="nowPlayingPage">
+    <ul class="pagination pull-right">
+      <li class="disabled" ><a class="" href="#">&laquo;</a></li>
+      <li ><a class="" id="nowOne" href="#">1</a></li>
+      <li ><a class="" id="nowTwo" href="#">2</a></li>
+      <li ><a class="" id="nowThree" href="#">3</a></li>
+      <li ><a class="" id="nowFour" href="#">4</a></li>
+      <li ><a class="" id="nowFive" href="#">5</a></li>
+      <li ><a class="" href="#">&raquo;</a></li>
     </ul>
   </div>
-
+  <div class="paginationPage" id="popularPage">
+    <ul class="pagination pull-right" >
+      <li class="disabled" ><a class="" href="#">&laquo;</a></li>
+      <li ><a class="" id="popOne" href="#">1</a></li>
+      <li ><a class="" id="popTwo" href="#">2</a></li>
+      <li ><a class="" id="popThree" href="#">3</a></li>
+      <li ><a class="" id="popFour" href="#">4</a></li>
+      <li ><a class="" id="popFive" href="#">5</a></li>
+      <li ><a class="" href="#">&raquo;</a></li>
+    </ul>
+  </div>
+  <div class="paginationPage" id="topRatedPage">
+    <ul class="pagination pull-right">
+      <li class="disabled" ><a class="" href="#">&laquo;</a></li>
+      <li ><a class="" id="topOne" href="#">1</a></li>
+      <li ><a class="" id="topTwo" href="#">2</a></li>
+      <li ><a class="" id="topThree" href="#">3</a></li>
+      <li ><a class="" id="topFour" href="#">4</a></li>
+      <li ><a class="" id="topFive" href="#">5</a></li>
+      <li ><a class="" href="#">&raquo;</a></li>
+    </ul>
+  </div>
+  <div class="paginationPage" id="upComingPage">
+    <ul class="pagination pull-right">
+      <li class="disabled" ><a class="" href="#">&laquo;</a></li>
+      <li ><a class="" id="upOne" href="#">1</a></li>
+      <li ><a class="" id="upTwo" href="#">2</a></li>
+      <li ><a class="" id="upThree" href="#">3</a></li>
+      <li ><a class="" id="upFour" href="#">4</a></li>
+      <li ><a class="" id="upFive" href="#">5</a></li>
+      <li ><a class="" href="#">&raquo;</a></li>
+    </ul>
+  </div>
+  </div>
+  <div class="navbar navbar-inverse navbar-static-bottom" role="navigation">
+      <p class="navbar-text pull left">@ 2015 MoviePass</p>
+      <a href="https://www.youtube.com" class="navbar-btn btn btn-danger">Subscribe to Youtube</a>
+      <div class="navbar-text pull-right">
+        <a href="#"><i class="fa fa-facebook-square fa-2x" id="footer-note"></i></a>
+        <a href="#"><i class="fa fa-twitter fa-2x" id="footer-note"></i></a>
+        <a href="#"><i class="fa fa-google-plus fa-2x" id="footer-note"></i></a>
+        <a href="#"><i class="fa fa-instagram fa-2x" id="footer-note"></i></a>
+        <a href="#"><i class="fa fa-linkedin-square fa-2x" id="footer-note"></i></a>
+      </div>
+    </div>
+  
 
 
   <script src="apiCall.js"></script>
-  <script src="paginate.js"></script>
-  <script src="custom.js"></script>
 </body>
 </html>
