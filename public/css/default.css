@@ -9,8 +9,8 @@ input:focus {
 }
 
 .mainPopular {
-  max-width: 540px;
-  max-height: 400px;
+  width: 540px;
+  height: 377px;
   margin-bottom: 25px;
 
   background: #fcfcfc;
@@ -26,6 +26,7 @@ input:focus {
 }
 
 .info {
+  max-width: 100%;
   margin-left: -25px;
 }
 
@@ -34,7 +35,12 @@ input:focus {
   
 }
 
+.rateNumber {
+  width: 100px;
+}
+
 .title {
+  width: 150px;
   font-size: 16px;
   color: red;
   font-weight: bold;
@@ -43,19 +49,30 @@ input:focus {
 .genres {
   color: #1386D8;
   font-style: oblique;
+  /*height: 45px;*/
 }
 .overview {
   display: block;
   display: -webkit-box;
-  max-width: 100%;
+  width: 225px;
   height: 197px;
   margin: 0 auto;
-  font-size: 14px;
+  font-size: 15px;
   line-height: 1;
   -webkit-line-clamp: 14;
   -webkit-box-orient: vertical;
   overflow: hidden;
   text-overflow: ellipsis;
+}
+
+.dateRelease {
+  font-style: italic;
+  font-size: 13px;
+}
+
+.date {
+  color: red;
+  font-size: 15px;
 }
 
 .searchField {
@@ -103,14 +120,6 @@ input:focus {
 
 }
 
-/*#navigateOne {
-  top: 300px;
-  right: 175px;
-  position: fixed;
-}*/
-
-
-
 #searchText {
   color: black;
   width: 450px;
@@ -143,9 +152,7 @@ input:focus {
   color: red; 
 }
 
-#navbar {
-  color: yellow;
-}
+
 
 
 
