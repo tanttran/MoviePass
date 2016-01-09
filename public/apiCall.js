@@ -15,6 +15,7 @@ var pagination = function () {
   li.setAttribute('class', 'disabled');
   var aElement = document.createElement('a');
   aTag = document.createTextNode('&laquo;');
+  console.log(aTag);
   paging.appendChild(ulOne);
   ulOne.appendChild(li);
   li.appendChild(aElement);
@@ -73,8 +74,17 @@ var apiCall = function(route) {
 
         var imageOne = document.createElement('img');
         imageOne.setAttribute('class', 'image');
-        imageOne.setAttribute('src', 'http://image.tmdb.org/t/p/w500' + apiResponse.results[i].poster_path)
+
+        var poster;
+        if (apiResponse.results[i].poster_path == null) {
+          poster = '/image/image-not-found.jpg'
+        } else {
+          poster = 'http://image.tmdb.org/t/p/w500' + apiResponse.results[i].poster_path;
+        }
+
+        imageOne.setAttribute('src', poster)
         divTwo.appendChild(imageOne);
+
 
         var divSeven = document.createElement('div');
         divSeven.setAttribute('class', 'titleRating');
@@ -183,27 +193,41 @@ var apiCall = function(route) {
   xhr.send(null);
 }
 
-window.onload = function() {
-  apiCall("nowPlaying");
+var currentSection;
 
+window.onload = function() {
+  
+  $('.pagination li:nth-child(2)').addClass('active');
+  apiCall("nowPlaying");
+  currentSection = "nowPlaying";
+  console.log("current Section = " + currentSection);
 }
 
 pagination();
 
 clickNowPlaying.addEventListener('click', function(e) {
   apiCall("nowPlaying");
+  currentSection = "nowPlaying";
+  console.log("current Section = " + currentSection);
 }, false);
 
 clickPopular.addEventListener('click', function(e) {
   apiCall("popular");
+  currentSection = "popular";
+  console.log("current Section = " + currentSection);
+
 }, false);
 
 clickTopRated.addEventListener('click', function(e) {
   apiCall("top_rated");
+  currentSection = "top_rated";
+  console.log("current Section = " + currentSection);
 }, false);
 
 clickUpComing.addEventListener('click', function(e) {
   apiCall("upComing");
+  currentSection = "upComing";
+  console.log("current Section = " + currentSection);
 }, false);
 
 clickSearch.addEventListener('click', function(e) {
@@ -235,8 +259,17 @@ clickSearch.addEventListener('click', function(e) {
 
         var imageOne = document.createElement('img');
         imageOne.setAttribute('class', 'image');
-        imageOne.setAttribute('src', 'http://image.tmdb.org/t/p/w500' + apiResponse.results[i].poster_path)
+
+        var poster;
+        if (apiResponse.results[i].poster_path == null) {
+          poster = '/image/image-not-found.jpg'
+        } else {
+          poster = 'http://image.tmdb.org/t/p/w500' + apiResponse.results[i].poster_path;
+        }
+
+        imageOne.setAttribute('src', poster)
         divTwo.appendChild(imageOne);
+
 
         var divSeven = document.createElement('div');
         divSeven.setAttribute('class', 'titleRating');
@@ -253,6 +286,7 @@ clickSearch.addEventListener('click', function(e) {
         var divFour = document.createElement('div');
         divFour.setAttribute('class', 'rating col-md-4');
         var paraTwo = document.createElement('p');
+        paraTwo.setAttribute('class', 'rateNumber, text-center');
         paraTwo.textContent = apiResponse.results[i].vote_average;
         divSeven.appendChild(divFour);
         divFour.appendChild(paraTwo);
@@ -267,6 +301,19 @@ clickSearch.addEventListener('click', function(e) {
         paraThree.setAttribute('class', 'genres');
         divNine.appendChild(paraThree);
         divThree.appendChild(divNine);
+
+        var divTen = document.createElement('div');
+        divTen.setAttribute('class', 'col-sm-12');
+        var paraFour = document.createElement('p');
+        var paraFive = document.createElement('span');
+        paraFive.setAttribute('class', 'date');
+        paraFour.setAttribute('class', 'dateRelease');
+        var pTagOne = document.createTextNode('Date Release:  ');
+        paraFive.textContent = apiResponse.results[i].release_date;
+        divThree.appendChild(divTen);
+        divTen.appendChild(paraFour);
+        paraFour.appendChild(pTagOne);
+        paraFour.appendChild(paraFive);
 
         for (var j = 0; j < apiResponse.results[i].genre_ids.length; j++){
           var value = apiResponse.results[i].genre_ids[j];
@@ -392,25 +439,30 @@ $('.pagination li a').on('click', function(){
   $(this).parent().addClass('active').siblings().removeClass('active');
 })
 
-$('.pagerValue').on('click', function(){
-  var value = $(this).data("value");
-  apiCall("nowPlaying/" + value);
-});
+
+$('.section').on('click', function(){
+  $('.pagination li').removeClass('active');
+  $('.pagination li:nth-child(2)').addClass('active');
+})
 
 $('.pagerValue').on('click', function(){
   var value = $(this).data("value");
-  apiCall("popular/" + value);
-});
 
-$('.pagerValueTop').on('click', function(){
-  var value = $(this).data("value");
-  apiCall("top_rated/" + value);
-});
-
-$('.pagerValueUp').on('click', function(){
-  var value = $(this).data("value");
-  apiCall("upComing/" + value);
-});
-
+  if (currentSection == "nowPlaying") {
+    apiCall("nowPlaying/" + value);
+  } else if (currentSection == "popular") {
+    apiCall("popular/" + value);
+  } else if (currentSection == "top_rated") {
+    apiCall("top_rated/" + value);
+  } else if (currentSection == "upComing") {
+      apiCall("upComing/" + value);
+  }
+  console.log(currentSection);
 
 });
+
+
+
+});
+
+
