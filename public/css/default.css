@@ -31,8 +31,13 @@ input:focus {
 }
 
 .rating {
+  font-weight: bold;
   margin-top: 10px;
   
+}
+
+.rateIcon {
+  color: orange;
 }
 
 .rateNumber {
@@ -66,11 +71,12 @@ input:focus {
 }
 
 .dateRelease {
-  font-style: italic;
+  
   font-size: 13px;
 }
 
 .date {
+  font-style: italic;
   color: red;
   font-size: 15px;
 }

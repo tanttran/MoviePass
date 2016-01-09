@@ -6,7 +6,37 @@ var textParser = bodyParser.text();
 
 router.use(textParser);
 
-router.post('/nowPlaying', function(req, res) {
+router.post('/search', function(req, res) {
+  var keyword = req.body;
+  var requestSearch = 'http://api.themoviedb.org/3/search/movie?&api_key=5e7c67dc92a8469124e97038b3422c88&query='+ keyword;
+  console.log(requestSearch);
+  request(requestSearch,
+    function(error, response, body){
+      if(response.statusCode == 200) {
+        res.send(body);
+      } else {
+        console.log(error);
+      }
+    });
+});
+
+// router.post('/yearRelease', function(req, res) {
+//   var yearValue = req.value;
+//   var requestYear = 'https://api.themoviedb.org/3/discover/movie?api_key=5e7c67dc92a8469124e97038b3422c88&primary_release_year='+ yearValue;
+//   console.log(requestYear);
+//   request(requestYear,
+//     function(error, response, body){
+//       if(response.statusCode == 200) {
+//         res.send(body);
+//       } else {
+//         console.log(error);
+//       }
+//     });
+// });
+
+// https://api.themoviedb.org/3/discover/movie?api_key=5e7c67dc92a8469124e97038b3422c88&primary_release_year=2015
+
+router.post('/nowPlaying/', function(req, res) {
   var requestNowPlaying = 'http://api.themoviedb.org/3/movie/now_playing?page=1&api_key=5e7c67dc92a8469124e97038b3422c88';
   console.log(requestNowPlaying);
   request(requestNowPlaying,
@@ -19,8 +49,9 @@ router.post('/nowPlaying', function(req, res) {
     });
 });
 
-router.post('/nowPlaying/2', function(req, res) {
-  var requestNowPlaying = 'http://api.themoviedb.org/3/movie/now_playing?page=2&api_key=5e7c67dc92a8469124e97038b3422c88';
+router.post('/nowPlaying/:page', function(req, res) {
+  var value= req.params.page;
+  var requestNowPlaying = 'http://api.themoviedb.org/3/movie/now_playing?page='+value+'&api_key=5e7c67dc92a8469124e97038b3422c88';
   console.log(requestNowPlaying);
   request(requestNowPlaying,
     function(error, response, body){
@@ -31,46 +62,6 @@ router.post('/nowPlaying/2', function(req, res) {
       }
     });
 });
-
-router.post('/nowPlaying/3', function(req, res) {
-  var requestNowPlaying = 'http://api.themoviedb.org/3/movie/now_playing?page=3&api_key=5e7c67dc92a8469124e97038b3422c88';
-  console.log(requestNowPlaying);
-  request(requestNowPlaying,
-    function(error, response, body){
-      if(response.statusCode == 200) {
-        res.send(body);
-      } else {
-        console.log(error);
-      }
-    });
-});
-
-router.post('/nowPlaying/4', function(req, res) {
-  var requestNowPlaying = 'http://api.themoviedb.org/3/movie/now_playing?page=4&api_key=5e7c67dc92a8469124e97038b3422c88';
-  console.log(requestNowPlaying);
-  request(requestNowPlaying,
-    function(error, response, body){
-      if(response.statusCode == 200) {
-        res.send(body);
-      } else {
-        console.log(error);
-      }
-    });
-});
-
-router.post('/nowPlaying/5', function(req, res) {
-  var requestNowPlaying = 'http://api.themoviedb.org/3/movie/now_playing?page=5&api_key=5e7c67dc92a8469124e97038b3422c88';
-  console.log(requestNowPlaying);
-  request(requestNowPlaying,
-    function(error, response, body){
-      if(response.statusCode == 200) {
-        res.send(body);
-      } else {
-        console.log(error);
-      }
-    });
-});
-
 
 router.post('/popular', function(req, res) {
   var requestPopular = 'http://api.themoviedb.org/3/movie/popular?page=1&api_key=5e7c67dc92a8469124e97038b3422c88';
@@ -85,63 +76,11 @@ router.post('/popular', function(req, res) {
     });
 });
 
-router.post('/popular/2', function(req, res) {
-  var requestPopular = 'http://api.themoviedb.org/3/movie/popular?page=2&api_key=5e7c67dc92a8469124e97038b3422c88';
+router.post('/popular/:page', function(req, res) {
+  var value= req.params.page;
+  var requestPopular = 'http://api.themoviedb.org/3/movie/popular?page='+value+'&api_key=5e7c67dc92a8469124e97038b3422c88';
   console.log(requestPopular);
   request(requestPopular,
-    function(error, response, body){
-      if(response.statusCode == 200) {
-        res.send(body);
-      } else {
-        console.log(error);
-      }
-    });
-});
-
-router.post('/popular/3', function(req, res) {
-  var requestPopular = 'http://api.themoviedb.org/3/movie/popular?page=3&api_key=5e7c67dc92a8469124e97038b3422c88';
-  console.log(requestPopular);
-  request(requestPopular,
-    function(error, response, body){
-      if(response.statusCode == 200) {
-        res.send(body);
-      } else {
-        console.log(error);
-      }
-    });
-});
-
-router.post('/popular/4', function(req, res) {
-  var requestPopular = 'http://api.themoviedb.org/3/movie/popular?page=4&api_key=5e7c67dc92a8469124e97038b3422c88';
-  console.log(requestPopular);
-  request(requestPopular,
-    function(error, response, body){
-      if(response.statusCode == 200) {
-        res.send(body);
-      } else {
-        console.log(error);
-      }
-    });
-});
-
-router.post('/popular/5', function(req, res) {
-  var requestPopular = 'http://api.themoviedb.org/3/movie/popular?page=5&api_key=5e7c67dc92a8469124e97038b3422c88';
-  console.log(requestPopular);
-  request(requestPopular,
-    function(error, response, body){
-      if(response.statusCode == 200) {
-        res.send(body);
-      } else {
-        console.log(error);
-      }
-    });
-});
-
-router.post('/search', function(req, res) {
-  var keyword = req.body;
-  var requestSearch = 'http://api.themoviedb.org/3/search/movie?&api_key=5e7c67dc92a8469124e97038b3422c88&query='+ keyword;
-  console.log(requestSearch);
-  request(requestSearch,
     function(error, response, body){
       if(response.statusCode == 200) {
         res.send(body);
@@ -165,47 +104,9 @@ router.post('/top_rated', function(req, res) {
     });
 });
 
-router.post('/top_rated/2', function(req, res) {
-  var requestTopRated = 'http://api.themoviedb.org/3/movie/top_rated?page=2&api_key=5e7c67dc92a8469124e97038b3422c88';
-  console.log(requestTopRated);
-  request(requestTopRated,
-    function(error, response, body){
-      if(response.statusCode == 200) {
-        res.send(body);
-      } else {
-        console.log(error);
-      }
-    });
-});
-
-router.post('/top_rated/3', function(req, res) {
-  var requestTopRated = 'http://api.themoviedb.org/3/movie/top_rated?page=3&api_key=5e7c67dc92a8469124e97038b3422c88';
-  console.log(requestTopRated);
-  request(requestTopRated,
-    function(error, response, body){
-      if(response.statusCode == 200) {
-        res.send(body);
-      } else {
-        console.log(error);
-      }
-    });
-});
-
-router.post('/top_rated/4', function(req, res) {
-  var requestTopRated = 'http://api.themoviedb.org/3/movie/top_rated?page=4&api_key=5e7c67dc92a8469124e97038b3422c88';
-  console.log(requestTopRated);
-  request(requestTopRated,
-    function(error, response, body){
-      if(response.statusCode == 200) {
-        res.send(body);
-      } else {
-        console.log(error);
-      }
-    });
-});
-
-router.post('/top_rated/5', function(req, res) {
-  var requestTopRated = 'http://api.themoviedb.org/3/movie/top_rated?page=5&api_key=5e7c67dc92a8469124e97038b3422c88';
+router.post('/top_rated/:page', function(req, res) {
+  var value= req.params.page;
+  var requestTopRated = 'http://api.themoviedb.org/3/movie/top_rated?page='+value+'&api_key=5e7c67dc92a8469124e97038b3422c88';
   console.log(requestTopRated);
   request(requestTopRated,
     function(error, response, body){
@@ -230,47 +131,9 @@ router.post('/upcoming', function(req, res) {
     });
 });
 
-router.post('/upcoming/2', function(req, res) {
-  var requestUpComing = 'http://api.themoviedb.org/3/movie/upcoming?page=2&api_key=5e7c67dc92a8469124e97038b3422c88';
-  console.log(requestUpComing);
-  request(requestUpComing,
-    function(error, response, body){
-      if(response.statusCode == 200) {
-        res.send(body);
-      } else {
-        console.log(error);
-      }
-    });
-});
-
-router.post('/upcoming/3', function(req, res) {
-  var requestUpComing = 'http://api.themoviedb.org/3/movie/upcoming?page=3&api_key=5e7c67dc92a8469124e97038b3422c88';
-  console.log(requestUpComing);
-  request(requestUpComing,
-    function(error, response, body){
-      if(response.statusCode == 200) {
-        res.send(body);
-      } else {
-        console.log(error);
-      }
-    });
-});
-
-router.post('/upcoming/4', function(req, res) {
-  var requestUpComing = 'http://api.themoviedb.org/3/movie/upcoming?page=4&api_key=5e7c67dc92a8469124e97038b3422c88';
-  console.log(requestUpComing);
-  request(requestUpComing,
-    function(error, response, body){
-      if(response.statusCode == 200) {
-        res.send(body);
-      } else {
-        console.log(error);
-      }
-    });
-});
-
-router.post('/upcoming/5', function(req, res) {
-  var requestUpComing = 'http://api.themoviedb.org/3/movie/upcoming?page=5&api_key=5e7c67dc92a8469124e97038b3422c88';
+router.post('/upcoming/:page', function(req, res) {
+  var value= req.params.page;
+  var requestUpComing = 'http://api.themoviedb.org/3/movie/upcoming?page='+value+'&api_key=5e7c67dc92a8469124e97038b3422c88';
   console.log(requestUpComing);
   request(requestUpComing,
     function(error, response, body){
