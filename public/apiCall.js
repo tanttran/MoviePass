@@ -6,26 +6,43 @@ var clickPopular = document.getElementById('popular');
 var clickSearch = document.getElementById('searchButton');
 var clickTopRated = document.getElementById('topRated');
 var clickUpComing = document.getElementById('upComing');
-// var clickNowOne = document.getElementById('nowOne');
-// var clickNowTwo = document.getElementById('nowTwo');
-// var clickNowThree = document.getElementById('nowThree');
-// var clickNowFour = document.getElementById('nowFour');
-// var clickNowFive = document.getElementById('nowFive');
-// var clickPopOne = document.getElementById('popOne');
-// var clickPopTwo = document.getElementById('popTwo');
-// var clickPopThree = document.getElementById('popThree');
-// var clickPopFour = document.getElementById('popFour');
-// var clickPopFive = document.getElementById('popFive');
-// var clickTopOne = document.getElementById('topOne');
-// var clickTopTwo = document.getElementById('topTwo');
-// var clickTopThree = document.getElementById('topThree');
-// var clickTopFour = document.getElementById('topFour');
-// var clickTopFive = document.getElementById('topFive');
-// var clickUpComingOne = document.getElementById('upOne');
-// var clickUpComingTwo = document.getElementById('upTwo');
-// var clickUpComingThree = document.getElementById('upThree');
-// var clickUpComingFour = document.getElementById('upFour');
-// var clickUpComingFive = document.getElementById('upFive');
+
+var pagination = function () {
+  var paging = document.getElementById('nowPlayingPage');
+  var ulOne = document.createElement('ul');
+  ulOne.setAttribute('class', 'pagination pull-right');
+  var li = document.createElement('li');
+  li.setAttribute('class', 'disabled');
+  var aElement = document.createElement('a');
+  aTag = document.createTextNode('&laquo;');
+  paging.appendChild(ulOne);
+  ulOne.appendChild(li);
+  li.appendChild(aElement);
+  aElement.appendChild(aTag);
+  for (i=1; i<11; i++){
+
+    var liOne = document.createElement('li');
+    liOne.setAttribute('class', '');
+    ulOne.appendChild(liOne);
+    var aElementOne= document.createElement('a');
+    aElementOne.setAttribute('class', 'pagerValue');
+    aElementOne.setAttribute('data-value', i);
+    var aTagOne = document.createTextNode(i);
+    liOne.appendChild(aElementOne);
+    aElementOne.appendChild(aTagOne);
+
+  }
+  var liTwo = document.createElement('li');
+  liTwo.setAttribute('class', 'disabled');
+  var aElementTwo = document.createElement('a');
+  var aTagTwo = document.createTextNode('&raquo;');
+  ulOne.appendChild(liTwo);
+  liTwo.appendChild(aElementTwo);
+  aElementTwo.appendChild(aTagTwo);
+
+
+};
+
 
 
 var apiCall = function(route) {
@@ -74,12 +91,13 @@ var apiCall = function(route) {
         var divFour = document.createElement('div');
         divFour.setAttribute('class', 'rating col-md-4');
         var paraTwo = document.createElement('p');
+        paraTwo.setAttribute('class', 'rateNumber, text-center');
         paraTwo.textContent = apiResponse.results[i].vote_average;
         divSeven.appendChild(divFour);
         divFour.appendChild(paraTwo);
 
         var rating = document.createElement('span');
-        rating.setAttribute('class', 'fa fa-star');
+        rating.setAttribute('class', 'fa fa-star rateIcon');
         paraTwo.appendChild(rating);
 
         var divNine = document.createElement('div');
@@ -167,7 +185,10 @@ var apiCall = function(route) {
 
 window.onload = function() {
   apiCall("nowPlaying");
+
 }
+
+pagination();
 
 clickNowPlaying.addEventListener('click', function(e) {
   apiCall("nowPlaying");
@@ -237,7 +258,7 @@ clickSearch.addEventListener('click', function(e) {
         divFour.appendChild(paraTwo);
 
         var rating = document.createElement('span');
-        rating.setAttribute('class', 'fa fa-star');
+        rating.setAttribute('class', 'fa fa-star rateIcon');
         paraTwo.appendChild(rating);
 
         var divNine = document.createElement('div');
@@ -317,65 +338,66 @@ var hidden = function(){
   $('#search-results').hide();
 };
 
-var hiddenPagination = function(){
-  $('#searchPage').hide();
-  $('#nowPlayingPage').hide();
-  $('#popularPage').hide();
-  $('#topRatedPage').hide();
-  $('#upComingPage').hide();
-};
+// var hiddenPagination = function(){
+//   $('#searchPage').hide();
+//   $('#nowPlayingPage').hide();
+//   $('#popularPage').hide();
+//   $('#topRatedPage').hide();
+//   $('#upComingPage').hide();
+// };
 
 hidden();
-hiddenPagination();
+// hiddenPagination();
 $('#now-playing').show();
-$('#nowPlayingPage').show();
+// $('#nowPlayingPage').show();
 
 
 $('#nowPlaying').click(function(){
   hidden();
-  hiddenPagination();
+  // hiddenPagination();
   $('#now-playing').show();
-  $('#nowPlayingPage').show();
+  // $('#nowPlayingPage').show();
 })
 
 $('#popular').click(function(){
   hidden();
-  hiddenPagination();
+  // hiddenPagination();
   $('#popular-movies').show();
-  $('#popularPage').show();
+  // $('#popularPage').show();
 })
 
 $('#topRated').click(function(){
   hidden();
-  hiddenPagination();
+  // hiddenPagination();
   $('#top-movies').show();
-  $('#topRatedPage').show();
+  // $('#topRatedPage').show();
 })
 
 $('#upComing').click(function(){
   hidden();
-  hiddenPagination();
+  // hiddenPagination();
   $('#upcoming-movies').show();
-  $('#upComingPage').show();
+  // $('#upComingPage').show();
 })
 
 $('#searchButton').click(function(){
   hidden();
-  hiddenPagination();
+  // hiddenPagination();
   $('#search-results').show();
-  $('#searchPage').show();
+
+  // $('#searchPage').show();
 })
 
 $('.pagination li a').on('click', function(){
   $(this).parent().addClass('active').siblings().removeClass('active');
 })
 
-$('.pagerValueNow').on('click', function(){
+$('.pagerValue').on('click', function(){
   var value = $(this).data("value");
   apiCall("nowPlaying/" + value);
 });
 
-$('.pagerValuePop').on('click', function(){
+$('.pagerValue').on('click', function(){
   var value = $(this).data("value");
   apiCall("popular/" + value);
 });
