@@ -11,19 +11,20 @@ var pagination = function () {
   var paging = document.getElementById('nowPlayingPage');
   var ulOne = document.createElement('ul');
   ulOne.setAttribute('class', 'pagination pull-right');
+  ulOne.setAttribute('id', 'showMe')
   var li = document.createElement('li');
-  li.setAttribute('class', 'disabled');
+  li.setAttribute('class', '');
   var aElement = document.createElement('a');
-  aTag = document.createTextNode('&laquo;');
-  console.log(aTag);
+  aElement.setAttribute('class', 'fa fa-chevron-left');
+  aElement.setAttribute('id', 'previous')
   paging.appendChild(ulOne);
   ulOne.appendChild(li);
   li.appendChild(aElement);
-  aElement.appendChild(aTag);
-  for (i=1; i<11; i++){
+
+  for (i=1; i<=20; i++){
 
     var liOne = document.createElement('li');
-    liOne.setAttribute('class', '');
+    liOne.setAttribute('class', 'paginationList');
     ulOne.appendChild(liOne);
     var aElementOne= document.createElement('a');
     aElementOne.setAttribute('class', 'pagerValue');
@@ -32,15 +33,17 @@ var pagination = function () {
     liOne.appendChild(aElementOne);
     aElementOne.appendChild(aTagOne);
 
+
   }
+  
   var liTwo = document.createElement('li');
-  liTwo.setAttribute('class', 'disabled');
+  liTwo.setAttribute('class', '');
   var aElementTwo = document.createElement('a');
-  var aTagTwo = document.createTextNode('&raquo;');
+  aElementTwo.setAttribute('class', 'fa fa-chevron-right');
+  aElementTwo.setAttribute('id', 'next');
   ulOne.appendChild(liTwo);
   liTwo.appendChild(aElementTwo);
-  aElementTwo.appendChild(aTagTwo);
-
+  
 
 };
 
@@ -102,6 +105,7 @@ var apiCall = function(route) {
         divFour.setAttribute('class', 'rating col-md-4');
         var paraTwo = document.createElement('p');
         paraTwo.setAttribute('class', 'rateNumber, text-center');
+        paraTwo.setAttribute('style', 'width: 150px')
         paraTwo.textContent = apiResponse.results[i].vote_average;
         divSeven.appendChild(divFour);
         divFour.appendChild(paraTwo);
@@ -385,54 +389,43 @@ var hidden = function(){
   $('#search-results').hide();
 };
 
-// var hiddenPagination = function(){
-//   $('#searchPage').hide();
-//   $('#nowPlayingPage').hide();
-//   $('#popularPage').hide();
-//   $('#topRatedPage').hide();
-//   $('#upComingPage').hide();
-// };
 
 hidden();
-// hiddenPagination();
 $('#now-playing').show();
-// $('#nowPlayingPage').show();
+
 
 
 $('#nowPlaying').click(function(){
   hidden();
-  // hiddenPagination();
+  $('.pagination').show();
   $('#now-playing').show();
-  // $('#nowPlayingPage').show();
+  
 })
 
 $('#popular').click(function(){
   hidden();
-  // hiddenPagination();
+  $('.pagination').show();
   $('#popular-movies').show();
-  // $('#popularPage').show();
+  
 })
 
 $('#topRated').click(function(){
   hidden();
-  // hiddenPagination();
+  $('.pagination').show();
   $('#top-movies').show();
-  // $('#topRatedPage').show();
 })
 
 $('#upComing').click(function(){
   hidden();
-  // hiddenPagination();
+  $('.pagination').show();
   $('#upcoming-movies').show();
-  // $('#upComingPage').show();
+  
 })
 
 $('#searchButton').click(function(){
   hidden();
-  // hiddenPagination();
+  $('.pagination').hide();
   $('#search-results').show();
-
-  // $('#searchPage').show();
 })
 
 $('.pagination li a').on('click', function(){
@@ -444,6 +437,56 @@ $('.section').on('click', function(){
   $('.pagination li').removeClass('active');
   $('.pagination li:nth-child(2)').addClass('active');
 })
+
+
+$('.paginationList').hide();
+    var pageLength = $('.paginationList').length;
+    var x=5;
+    $('.paginationList:lt('+x+')').show();
+    $('#next').click(function () {
+        x= (x+5 <= pageLength) ? x+5 : pageLength;
+
+        $('.paginationList:lt('+x+')').show();
+        $('.paginationList:lt('+(x-5)+')').hide();
+        
+    });
+
+    $('#previous').click(function () {
+
+        // $('.paginationList:lt('+x+')').show();
+        // $('.paginationList:lt('+(x-5)+')').hide();
+
+
+        x=(x-5<0) ? 5 : x-5;
+
+        $('.paginationList').not(':lt('+(x)+')').show();
+        // $('.paginationList').nextAll(':lt(5)').hide();
+        // $('.paginationList').next(':lt('5')').hide();
+        // $('.paginationList:lt('+(5)+')').hide();
+        // $('.paginationList').not(':lt('+(x)+')').hide();
+
+        // $('.paginationList').not(':lt('+(x+10)+')').hide();
+        
+        // $('.paginationList:lt('+(x+5)+')').hide();
+        
+    });
+
+
+
+// $('.paginationList:gt(4)').hide();
+
+// // $('#previous').click(function() {
+// //     var first = $('ul').children('li:visible:first');
+// //     first.prevAll(':lt(5)').show();
+// //     first.prev().nextAll().hide()
+// // });
+
+// $('#next').click(function() {
+//     console.log('nextFive');
+//     $('.paginationList').children(':visible:last')
+//     $('.paginationList').next(':lt(5)').show();
+//     // $('.paginationList').next().prevAll().hide();
+// });
 
 $('.pagerValue').on('click', function(){
   var value = $(this).data("value");
