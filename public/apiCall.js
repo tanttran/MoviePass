@@ -6,6 +6,8 @@ var clickPopular = document.getElementById('popular');
 var clickSearch = document.getElementById('searchButton');
 var clickTopRated = document.getElementById('topRated');
 var clickUpComing = document.getElementById('upComing');
+// var clickYear = document.getElementById('yearInput');
+
 
 var pagination = function () {
   var paging = document.getElementById('nowPlayingPage');
@@ -21,7 +23,7 @@ var pagination = function () {
   ulOne.appendChild(li);
   li.appendChild(aElement);
 
-  for (i=1; i<=20; i++){
+  for (i=1; i<=25; i++){
 
     var liOne = document.createElement('li');
     liOne.setAttribute('class', 'paginationList');
@@ -32,8 +34,6 @@ var pagination = function () {
     var aTagOne = document.createTextNode(i);
     liOne.appendChild(aElementOne);
     aElementOne.appendChild(aTagOne);
-
-
   }
   
   var liTwo = document.createElement('li');
@@ -43,8 +43,6 @@ var pagination = function () {
   aElementTwo.setAttribute('id', 'next');
   ulOne.appendChild(liTwo);
   liTwo.appendChild(aElementTwo);
-  
-
 };
 
 
@@ -198,9 +196,8 @@ var apiCall = function(route) {
 }
 
 var currentSection;
-
 window.onload = function() {
-  
+  $('.paginationList:gt(4)').hide();
   $('.pagination li:nth-child(2)').addClass('active');
   apiCall("nowPlaying");
   currentSection = "nowPlaying";
@@ -291,6 +288,7 @@ clickSearch.addEventListener('click', function(e) {
         divFour.setAttribute('class', 'rating col-md-4');
         var paraTwo = document.createElement('p');
         paraTwo.setAttribute('class', 'rateNumber, text-center');
+        paraTwo.setAttribute('style', 'width: 150px')
         paraTwo.textContent = apiResponse.results[i].vote_average;
         divSeven.appendChild(divFour);
         divFour.appendChild(paraTwo);
@@ -381,14 +379,18 @@ clickSearch.addEventListener('click', function(e) {
   xhr.send(keyword);
 }, false);
 
+
 var hidden = function(){
   $('#now-playing').hide();
   $('#popular-movies').hide();
   $('#top-movies').hide();
   $('#upcoming-movies').hide();
   $('#search-results').hide();
+  $('#filter-results').hide();
 };
 
+var yearSelect = $('#yearInput').change().val();
+  console.log(yearSelect);
 
 hidden();
 $('#now-playing').show();
@@ -428,21 +430,28 @@ $('#searchButton').click(function(){
   $('#search-results').show();
 })
 
+$('#yearInput').click(function(){
+  hidden();
+  $('.pagination').hide();
+  $('#filter-results').show();
+})
+
 $('.pagination li a').on('click', function(){
   $(this).parent().addClass('active').siblings().removeClass('active');
 })
 
 
 $('.section').on('click', function(){
+  $('.paginationList').show();
+  $('.paginationList:gt(4)').hide();
   $('.pagination li').removeClass('active');
   $('.pagination li:nth-child(2)').addClass('active');
 })
 
-
-$('.paginationList').hide();
-    var pageLength = $('.paginationList').length;
-    var x=5;
-    $('.paginationList:lt('+x+')').show();
+   var pageLength = $('.paginationList').length;
+   var x=5;
+   // $('.paginationList').show();
+   // $('.paginationList:lt('+x+')').show(); 
     $('#next').click(function () {
         x= (x+5 <= pageLength) ? x+5 : pageLength;
 
@@ -451,29 +460,19 @@ $('.paginationList').hide();
         
     });
 
-    $('#previous').click(function () {
+    // $('#previous').click(function () {
 
-        // $('.paginationList:lt('+x+')').show();
-        // $('.paginationList:lt('+(x-5)+')').hide();
-
-
-        x=(x-5<0) ? 5 : x-5;
-
-        $('.paginationList').not(':lt('+(x)+')').show();
-        // $('.paginationList').nextAll(':lt(5)').hide();
-        // $('.paginationList').next(':lt('5')').hide();
-        // $('.paginationList:lt('+(5)+')').hide();
-        // $('.paginationList').not(':lt('+(x)+')').hide();
-
-        // $('.paginationList').not(':lt('+(x+10)+')').hide();
-        
-        // $('.paginationList:lt('+(x+5)+')').hide();
-        
-    });
+    //     x=(x-5<0) ? 5 : x-5;
+    //     $('.paginationList').not(':lt('+(x)+')').show().next(':lt('+5+')').hide();
+      
+    //     // $('.paginationList:lt('+x+')').show();
+    //     // $('.paginationList:lt('+(x-5)+')').hide();
+          
+    // });
 
 
 
-// $('.paginationList:gt(4)').hide();
+// $('.paginationList:gt(4)').show();
 
 // // $('#previous').click(function() {
 // //     var first = $('ul').children('li:visible:first');
@@ -483,10 +482,12 @@ $('.paginationList').hide();
 
 // $('#next').click(function() {
 //     console.log('nextFive');
-//     $('.paginationList').children(':visible:last')
-//     $('.paginationList').next(':lt(5)').show();
+//     $('.paginationList').slice(':lt(5)').hide();
+//     // $('.paginationList').children(':visible:last')
+//     // $('.paginationList').next(':lt(9)').show();
 //     // $('.paginationList').next().prevAll().hide();
 // });
+
 
 $('.pagerValue').on('click', function(){
   var value = $(this).data("value");
@@ -499,11 +500,13 @@ $('.pagerValue').on('click', function(){
     apiCall("top_rated/" + value);
   } else if (currentSection == "upComing") {
       apiCall("upComing/" + value);
-  }
-  console.log(currentSection);
+  } else if (currentSection == "search") {
+      apiCall("upComing/" + value);
+
+    }
+      console.log(currentSection);
 
 });
-
 
 
 });
