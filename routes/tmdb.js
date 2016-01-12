@@ -20,11 +20,12 @@ router.post('/search', function(req, res) {
     });
 });
 
-// router.post('/yearRelease', function(req, res) {
-//   var yearValue = req.value;
-//   var requestYear = 'https://api.themoviedb.org/3/discover/movie?api_key=5e7c67dc92a8469124e97038b3422c88&primary_release_year='+ yearValue;
-//   console.log(requestYear);
-//   request(requestYear,
+// router.post('/search/:page', function(req, res) {
+//   var value = req.params.page;
+//   var keyword = req.body;
+//   var requestSearch = 'http://api.themoviedb.org/3/search/movie?page='+value+'&api_key=5e7c67dc92a8469124e97038b3422c88&query='+ keyword;
+//   console.log(requestSearch);
+//   request(requestSearch,
 //     function(error, response, body){
 //       if(response.statusCode == 200) {
 //         res.send(body);
@@ -34,7 +35,33 @@ router.post('/search', function(req, res) {
 //     });
 // });
 
-// https://api.themoviedb.org/3/discover/movie?api_key=5e7c67dc92a8469124e97038b3422c88&primary_release_year=2015
+router.post('/filterYear/', function(req, res) {
+  var yearSelect = req.body;
+  var requestYear = 'https://api.themoviedb.org/3/discover/movie?api_key=5e7c67dc92a8469124e97038b3422c88&primary_release_year='+yearSelect+'&with_genres='+ 12 + ',' + 28;
+  console.log(requestYear);
+  request(requestYear,
+    function(error, response, body){
+      if(response.statusCode == 200) {
+        res.send(body);
+      } else {
+        console.log(error);
+      }
+    });
+});
+
+router.post('/filterSort/', function(req, res) {
+  var sortSelect = req.body;
+  var requestSort = 'https://api.themoviedb.org/3/discover/movie?api_key=5e7c67dc92a8469124e97038b3422c88&sort_by='+sortSelect+'&with_genres='+ 12 + ',' + 28;
+  console.log(requestSort);
+  request(requestSort,
+    function(error, response, body){
+      if(response.statusCode == 200) {
+        res.send(body);
+      } else {
+        console.log(error);
+      }
+    });
+});
 
 router.post('/nowPlaying/', function(req, res) {
   var requestNowPlaying = 'http://api.themoviedb.org/3/movie/now_playing?page=1&api_key=5e7c67dc92a8469124e97038b3422c88';
