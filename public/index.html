@@ -59,7 +59,10 @@
       <div class="col-sm-2 filterBox">
         <h4>Genres</h4>
         <div class="select">
-        <input type="text" class="" autocomplete="on" placeholder="Filter by Genres" value="" name="genres" id="genreInput">
+        <select class="" id="genreInput">
+        <option value="#">Select Genres</option><option value="28">Action</option><option value="12">Adventure</option><option value="16">Animation</option><option value="35">Comedy</option><option value="80">Crime</option><option value="99">Documentary</option><option value="18">Drama</option><option value="10751">Family</option><option value="14">Fantasy</option><option value="10769">Foreign</option><option value="36">History</option><option value="27">Horror</option><option value="10402">Music</option><option value="9648">Mystery</option><option value="10749">Romance</option><option value="878">Science Fiction</option><option value="10770">TV Movie</option><option value="53">Thriller</option><option value="10752">War</option><option value="37">Western</option>
+        </select>
+        <!-- <input type="text" class="" autocomplete="on" placeholder="Filter by Genres" value="" name="genres" id="genreInput"> -->
       </div>
       </div>
 
@@ -69,6 +72,8 @@
         <input type="text" class="" autocomplete="off" placeholder="Filter by Keywords" name="keywords" id="keywordInput">
       </div>
       </div>
+
+      <button type="submit" class="center-block" id="genreButton" value="Find Movies"></button>
 
     </form>
 
