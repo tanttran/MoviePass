@@ -43,7 +43,7 @@ var pagination = function () {
   ulOne.appendChild(li);
   li.appendChild(aElement);
 
-  for (i=1; i<=10; i++){
+  for (i=1; i<=5; i++){
 
     var liOne = document.createElement('li');
     liOne.setAttribute('class', 'paginationList');
@@ -490,6 +490,7 @@ $('.section').on('click', function(){
   $('.pagination li:nth-child(2)').addClass('active');
 })
 
+
 $('.pagerValue').on('click', function(){
   var value = $(this).data("value");
 
@@ -508,6 +509,7 @@ $('.pagerValue').on('click', function(){
       console.log(currentSection);
 
 });
+
 // $('.paginationList:gt(4)').hide();
 // var pageLength = $('.paginationList').length;
 //    var x=5;
@@ -529,6 +531,6 @@ $('.pagerValue').on('click', function(){
           
 //     });
 
-});
+}); //End JQuery
 
 

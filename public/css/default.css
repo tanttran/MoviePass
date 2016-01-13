@@ -3,7 +3,6 @@ input:focus {
     outline: 0;
 }
 
-
 .section {
   font-size: 16px;
   color: red;
@@ -129,7 +128,7 @@ input:focus {
    width: 200px;
    height: 35px;
    overflow: hidden;
-   /*background: url("../image/down_arrow_select.jpg") no-repeat right #ddd;*/
+   background: url("../image/down_arrow_select.jpg") no-repeat right;
    border: 1px solid #ddd;
    }
 
@@ -144,10 +143,11 @@ input:focus {
    height: 35px;
    color: red;
    -webkit-appearance: none;
+
 }
 
 
-.select input {
+#keywordInput {
    background: transparent;
    width: 200px;
    padding: 5px;
@@ -157,7 +157,9 @@ input:focus {
    border-radius: 0;
    height: 35px;
    -webkit-appearance: none;
+   border: 1px solid #ddd;
 }
+
 
 #background-one {
   background-image: url("../image/movie-one.jpg");
