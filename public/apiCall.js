@@ -6,28 +6,6 @@ var clickPopular = document.getElementById('popular');
 var clickSearch = document.getElementById('searchButton');
 var clickTopRated = document.getElementById('topRated');
 var clickUpComing = document.getElementById('upComing');
-// var clickYear = document.getElementById('yearInput');
-
-var directionPage = function() {
-  var paging = document.getElementById('directionPage');
-  var divEleven = document.createElement('div');
-  var ulOne = document.createElement('ul');
-  ulOne.setAttribute('class', 'pagination pull-right');
-  ulOne.setAttribute('id', 'showMe')
-  var aElement = document.createElement('a');
-  var aElementTwo = document.createElement('a');
-  aElement.setAttribute('class', 'paging')
-  aElement.setAttribute('id', 'previous')
-  aElementTwo.setAttribute('class', 'paging')
-  aElementTwo.setAttribute('id', 'next');
-  var aTag = document.createTextNode('Previous |')
-  var aTagTwo = document.createTextNode('| Next');
-  paging.appendChild(divEleven);
-  divEleven.appendChild(aElement);
-  aElement.appendChild(aTag);
-  divEleven.appendChild(aElementTwo);
-  aElementTwo.appendChild(aTagTwo);
-}
 
 var pagination = function () {
   var paging = document.getElementById('nowPlayingPage');
@@ -64,9 +42,6 @@ var pagination = function () {
   ulOne.appendChild(liTwo);
   liTwo.appendChild(aElementTwo);
 };
-
-
-
 
 var apiCall = function(route) {
     var xhr = new XMLHttpRequest();
@@ -215,7 +190,7 @@ var apiCall = function(route) {
   xhr.open('POST', 'http://localhost:1337/movie/' + route, true);
   xhr.send(null);
 }
-
+pagination();
 var currentSection;
 window.onload = function() {
   // $('.paginationList:gt(4)').hide();
@@ -225,7 +200,6 @@ window.onload = function() {
   console.log("current Section = " + currentSection);
 }
 
-pagination();
 
 clickNowPlaying.addEventListener('click', function(e) {
   apiCall("nowPlaying");
@@ -448,25 +422,7 @@ $('#searchButton').click(function(){
   $('#search-results').show();
 })
 
-// $('#yearInput').click(function(){
-//   hidden();
-//   $('.pagination').hide();
-//   $('#filter-results').show();
-// })
-
-$('#yearInput').click(function(){
-  hidden();
-  $('.pagination').hide();
-  $('#filter-results').show();
-})
-
-$('#sortInput').click(function(){
-  hidden();
-  $('.pagination').hide();
-  $('#filter-results').show();
-})
-
-$('#genreInput').click(function(){
+$('.selectInput').on('change', function(){
   hidden();
   $('.pagination').hide();
   $('#filter-results').show();
@@ -505,7 +461,7 @@ $('.pagerValue').on('click', function(){
   } else if (currentSection == "search") {
       apiCall("upComing/" + value);
 
-    }
+  }
       console.log(currentSection);
 
 });
@@ -524,13 +480,11 @@ $('.pagerValue').on('click', function(){
 
 //     $('#previous').click(function () {
 
-//         x=(x-5<0) ? 5 : x-5;
+//         x=(x-5<0) ? 5 : x-10;
 //         $('.paginationList:lt('+x+')').show();
-//         $('.paginationList:lt('+(x-5)+')').hide();
+//         $('.paginationList:lt('+(-x)+')').hide();
         
           
 //     });
 
 }); //End JQuery
-
-

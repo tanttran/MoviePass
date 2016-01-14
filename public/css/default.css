@@ -12,9 +12,6 @@ input:focus {
   margin-left: -35px;
 }
 
-.filterBox {
-  margin-right: 55px;
-}
 
 .mainPopular {
   width: 540px;
@@ -124,12 +121,17 @@ input:focus {
   
 }
 
+.filterBox {
+  margin-right: 55px;
+  color: black;
+}
+
 .select {
    width: 200px;
    height: 35px;
    overflow: hidden;
    background: url("../image/down_arrow_select.jpg") no-repeat right;
-   border: 1px solid #ddd;
+   border: 1px solid black;
    }
 
 .select select {
@@ -141,7 +143,7 @@ input:focus {
    border: 0;
    border-radius: 0;
    height: 35px;
-   color: red;
+   color: black;
    -webkit-appearance: none;
 
 }
@@ -157,7 +159,7 @@ input:focus {
    border-radius: 0;
    height: 35px;
    -webkit-appearance: none;
-   border: 1px solid #ddd;
+   border: 1px solid black;
 }
 
 
