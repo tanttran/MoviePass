@@ -7,6 +7,20 @@ var clickSearch = document.getElementById('searchButton');
 var clickTopRated = document.getElementById('topRated');
 var clickUpComing = document.getElementById('upComing');
 
+var yearLoop = function(){
+  var yearOption = document.getElementById('yearInput');
+  for (i=2015; i>=1950; i--){
+    var option = document.createElement('option');
+    option.setAttribute('value', i);
+    var optionTag = document.createTextNode(i);
+    option.appendChild(optionTag);
+    yearOption.appendChild(option);
+
+  }
+}
+
+yearLoop();
+
 var pagination = function () {
   var paging = document.getElementById('nowPlayingPage');
   var ulOne = document.createElement('ul');
@@ -418,7 +432,7 @@ $('#upComing').click(function(){
 
 $('#searchButton').click(function(){
   hidden();
-  $('.pagination').hide();
+  // $('.pagination').hide();
   $('#search-results').show();
 })
 
