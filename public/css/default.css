@@ -63,14 +63,14 @@ input:focus {
   /*height: 45px;*/
 }
 .overview {
-  display: block;
+  display: block; /* Fallback for non-webkit */
   display: -webkit-box;
-  width: 225px;
-  height: 197px;
+  max-width: 225px;
+  height: 176px; /* Fallback for non-webkit */
   margin: 0 auto;
-  font-size: 15px;
+  font-size: 15;
   line-height: 1;
-  -webkit-line-clamp: 14;
+  -webkit-line-clamp: 12;
   -webkit-box-orient: vertical;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -123,15 +123,15 @@ input:focus {
 
 .filterBox {
   margin-right: 55px;
-  color: black;
+  color: #379594;
 }
 
 .select {
    width: 200px;
    height: 35px;
    overflow: hidden;
-   background: url("../image/down_arrow_select.jpg") no-repeat right;
-   border: 1px solid black;
+   background: url("../image/arrowdown.png") no-repeat right;
+   border: 2px solid #379594;
    }
 
 .select select {
@@ -143,7 +143,7 @@ input:focus {
    border: 0;
    border-radius: 0;
    height: 35px;
-   color: black;
+   color: #379594;
    -webkit-appearance: none;
 
 }
@@ -159,7 +159,7 @@ input:focus {
    border-radius: 0;
    height: 35px;
    -webkit-appearance: none;
-   border: 1px solid black;
+   border: 2px solid #379594;
 }
 
 
