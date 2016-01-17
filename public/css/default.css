@@ -5,7 +5,9 @@ input:focus {
 
 .section {
   font-size: 16px;
-  color: red;
+  color: #0F55F7;
+  margin-right: 15px;
+  font-weight: bold;
 }
 
 .filter {
@@ -123,7 +125,7 @@ input:focus {
 
 .filterBox {
   margin-right: 55px;
-  color: #379594;
+  color: red;
 }
 
 .select {
@@ -131,7 +133,7 @@ input:focus {
    height: 35px;
    overflow: hidden;
    background: url("../image/arrowdown.png") no-repeat right;
-   border: 2px solid #379594;
+   border: 2px solid red;
    }
 
 .select select {
@@ -143,7 +145,7 @@ input:focus {
    border: 0;
    border-radius: 0;
    height: 35px;
-   color: #379594;
+   color: red;
    -webkit-appearance: none;
 
 }
@@ -159,7 +161,7 @@ input:focus {
    border-radius: 0;
    height: 35px;
    -webkit-appearance: none;
-   border: 2px solid #379594;
+   border: 2px solid red;
 }
 
 
