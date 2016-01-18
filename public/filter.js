@@ -4,7 +4,6 @@ var clickYear = document.getElementById('yearInput');
 var clickSort = document.getElementById('sortInput');
 var clickGenre = document.getElementById('genreInput');
 var clickKeyword = document.getElementById('genreButton');
-var clickChangeInput = document.getElementsByTagName('selectInput');
 
 $('.selectInput').on('change', function() {
 
@@ -153,7 +152,8 @@ var xhr = new XMLHttpRequest();
   var filter = {
     yearSelect: clickYear.options[clickYear.selectedIndex].value,
     sortSelect: clickSort.options[clickSort.selectedIndex].value,
-    genreValue: clickGenre.options[clickGenre.selectedIndex].value
+    genreValue: clickGenre.options[clickGenre.selectedIndex].value,
+
   }
   var filterJSON = JSON.stringify(filter);
   console.log(filterJSON);
