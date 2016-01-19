@@ -9,7 +9,8 @@ var clickUpComing = document.getElementById('upComing');
 
 var yearLoop = function(){
   var yearOption = document.getElementById('yearInput');
-  for (i=2015; i>=1950; i--){
+
+  for (i=2016; i>=1950; i--){
     var option = document.createElement('option');
     option.setAttribute('value', i);
     var optionTag = document.createTextNode(i);
@@ -22,6 +23,7 @@ var yearLoop = function(){
 yearLoop();
 
 var pagination = function () {
+
   var paging = document.getElementById('nowPlayingPage');
   var ulOne = document.createElement('ul');
   ulOne.setAttribute('class', 'pagination pull-right');
@@ -471,12 +473,10 @@ $('.pagerValue').on('click', function(){
   } else if (currentSection == "top_rated") {
     apiCall("top_rated/" + value);
   } else if (currentSection == "upComing") {
-      apiCall("upComing/" + value);
-  } else if (currentSection == "search") {
-      apiCall("upComing/" + value);
+    apiCall("upComing/" + value);
 
   }
-      console.log(currentSection);
+  console.log(currentSection);
 
 });
 
