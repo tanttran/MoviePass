@@ -23,40 +23,24 @@ var yearLoop = function(){
 yearLoop();
 
 var pagination = function () {
-
   var paging = document.getElementById('nowPlayingPage');
   var ulOne = document.createElement('ul');
   ulOne.setAttribute('class', 'pagination pull-right');
   ulOne.setAttribute('id', 'showMe')
-  var li = document.createElement('li');
-  li.setAttribute('class', '');
-  var aElement = document.createElement('a');
-  aElement.setAttribute('class', 'fa fa-chevron-left');
-  aElement.setAttribute('id', 'previous')
   paging.appendChild(ulOne);
-  ulOne.appendChild(li);
-  li.appendChild(aElement);
-
-  for (i=1; i<=5; i++){
+  
+  for (i=1; i<=50; i++){
 
     var liOne = document.createElement('li');
     liOne.setAttribute('class', 'paginationList');
-    ulOne.appendChild(liOne);
     var aElementOne= document.createElement('a');
     aElementOne.setAttribute('class', 'pagerValue');
     aElementOne.setAttribute('data-value', i);
     var aTagOne = document.createTextNode(i);
+    ulOne.appendChild(liOne);
     liOne.appendChild(aElementOne);
     aElementOne.appendChild(aTagOne);
   }
-  
-  var liTwo = document.createElement('li');
-  liTwo.setAttribute('class', '');
-  var aElementTwo = document.createElement('a');
-  aElementTwo.setAttribute('class', 'fa fa-chevron-right');
-  aElementTwo.setAttribute('id', 'next');
-  ulOne.appendChild(liTwo);
-  liTwo.appendChild(aElementTwo);
 };
 
 var apiCall = function(route) {
@@ -97,7 +81,6 @@ var apiCall = function(route) {
 
         imageOne.setAttribute('src', poster)
         divTwo.appendChild(imageOne);
-
 
         var divSeven = document.createElement('div');
         divSeven.setAttribute('class', 'titleRating');
@@ -210,12 +193,11 @@ pagination();
 var currentSection;
 window.onload = function() {
   // $('.paginationList:gt(4)').hide();
-  $('.pagination li:nth-child(2)').addClass('active');
+  $('.pagination li:nth-child(1)').addClass('active');
   apiCall("nowPlaying");
   currentSection = "nowPlaying";
   console.log("current Section = " + currentSection);
 }
-
 
 clickNowPlaying.addEventListener('click', function(e) {
   apiCall("nowPlaying");
@@ -281,7 +263,6 @@ clickSearch.addEventListener('click', function(e) {
 
         imageOne.setAttribute('src', poster)
         divTwo.appendChild(imageOne);
-
 
         var divSeven = document.createElement('div');
         divSeven.setAttribute('class', 'titleRating');
@@ -404,19 +385,16 @@ var hidden = function(){
 hidden();
 $('#now-playing').show();
 
-
 $('#nowPlaying').click(function(){
   hidden();
   $('.pagination').show();
-  $('#now-playing').show();
-  
+  $('#now-playing').show(); 
 })
 
 $('#popular').click(function(){
   hidden();
   $('.pagination').show();
-  $('#popular-movies').show();
-  
+  $('#popular-movies').show(); 
 })
 
 $('#topRated').click(function(){
@@ -428,8 +406,7 @@ $('#topRated').click(function(){
 $('#upComing').click(function(){
   hidden();
   $('.pagination').show();
-  $('#upcoming-movies').show();
-  
+  $('#upcoming-movies').show(); 
 })
 
 $('#searchButton').click(function(){
@@ -454,51 +431,44 @@ $('.pagination li a').on('click', function(){
   $(this).parent().addClass('active').siblings().removeClass('active');
 })
 
-
 $('.section').on('click', function(){
   $('.paginationList').show();
-  // $('.paginationList:gt(4)').hide();
+  $('.paginationList:gt(4)').hide();
   $('.pagination li').removeClass('active');
-  $('.pagination li:nth-child(2)').addClass('active');
+  $('.pagination li:nth-child(1)').addClass('active');
 })
 
 
 $('.pagerValue').on('click', function(){
   var value = $(this).data("value");
 
-  if (currentSection == "nowPlaying") {
+    if (currentSection == "nowPlaying") {
     apiCall("nowPlaying/" + value);
-  } else if (currentSection == "popular") {
+    } else if (currentSection == "popular") {
     apiCall("popular/" + value);
-  } else if (currentSection == "top_rated") {
+    } else if (currentSection == "top_rated") {
     apiCall("top_rated/" + value);
-  } else if (currentSection == "upComing") {
+    } else if (currentSection == "upComing") {
     apiCall("upComing/" + value);
-
-  }
-  console.log(currentSection);
-
+    }
+    console.log(currentSection);
 });
 
-// $('.paginationList:gt(4)').hide();
-// var pageLength = $('.paginationList').length;
-//    var x=5;
 
-//     $('#next').click(function () {
-//         x= (x+5 <= pageLength) ? x+5 : pageLength;
+$('.paginationList:gt(4)').hide();
+$('#clickPrev').click(function() {
+    var first = $('.pagerValue:visible:first');
+    var firstListItem = first.parent('.paginationList');
+    firstListItem.prevAll(':lt(5)').show();
+    firstListItem.prev().nextAll().hide();
+});
 
-//         $('.paginationList:lt('+x+')').show();
-//         $('.paginationList:lt('+(x-5)+')').hide();
-        
-//     });
+$('#clickNext').click(function() {
+    var lastPage = $('.pagerValue:visible:last');
+    var lastListItem = lastPage.parent();
+    lastListItem.nextAll(':lt(5)').show();
+    lastListItem.next().prevAll().hide(); 
+});
 
-//     $('#previous').click(function () {
-
-//         x=(x-5<0) ? 5 : x-10;
-//         $('.paginationList:lt('+x+')').show();
-//         $('.paginationList:lt('+(-x)+')').hide();
-        
-          
-//     });
 
 }); //End JQuery
