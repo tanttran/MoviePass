@@ -20,34 +20,18 @@ router.post('/search', function(req, res) {
     });
 });
 
-// router.post('/search/:page', function(req, res) {
-//   var value = req.params.page;
-//   var keyword = req.body;
-//   var requestSearch = 'http://api.themoviedb.org/3/search/movie?page='+value+'&api_key=5e7c67dc92a8469124e97038b3422c88&query='+ keyword;
-//   console.log(requestSearch);
-//   request(requestSearch,
-//     function(error, response, body){
-//       if(response.statusCode == 200) {
-//         res.send(body);
-//       } else {
-//         console.log(error);
-//       }
-//     });
-// });
-
 
 router.post('/filter/', function(req, res) {
   var responseObject = req.body;
-  console.log("BODY IS BELOW");
   console.log(responseObject);
   var jsonObject = JSON.parse(responseObject);
   var yearSelect = jsonObject.yearSelect;
   console.log(yearSelect);
   var sortSelect = jsonObject.sortSelect;
   var genreValue = jsonObject.genreValue;
-  var requestYear = 'https://api.themoviedb.org/3/discover/movie?api_key=5e7c67dc92a8469124e97038b3422c88&primary_release_year='+ yearSelect +'&sort_by='+ sortSelect +'&with_genres='+genreValue;
-  console.log(requestYear);
-  request(requestYear,
+  var requestFilter = 'https://api.themoviedb.org/3/discover/movie?page=1&api_key=5e7c67dc92a8469124e97038b3422c88&primary_release_year='+ yearSelect +'&sort_by='+ sortSelect +'&with_genres='+genreValue;
+  console.log(requestFilter);
+  request(requestFilter,
     function(error, response, body){
       if(response.statusCode == 200) {
         res.send(body);
@@ -56,8 +40,6 @@ router.post('/filter/', function(req, res) {
       }
     });
 });
-
-
 
 router.post('/nowPlaying/', function(req, res) {
   var requestNowPlaying = 'http://api.themoviedb.org/3/movie/now_playing?page=1&api_key=5e7c67dc92a8469124e97038b3422c88';
