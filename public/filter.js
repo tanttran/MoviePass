@@ -45,7 +45,6 @@ var xhr = new XMLHttpRequest();
         imageOne.setAttribute('src', poster)
         divTwo.appendChild(imageOne);
 
-
         var divSeven = document.createElement('div');
         divSeven.setAttribute('class', 'titleRating');
         divThree.appendChild(divSeven);
@@ -153,8 +152,8 @@ var xhr = new XMLHttpRequest();
     yearSelect: clickYear.options[clickYear.selectedIndex].value,
     sortSelect: clickSort.options[clickSort.selectedIndex].value,
     genreValue: clickGenre.options[clickGenre.selectedIndex].value,
-
   }
+
   var filterJSON = JSON.stringify(filter);
   console.log(filterJSON);
   xhr.open('POST', 'http://localhost:1337/movie/filter/', true);
@@ -201,7 +200,6 @@ clickKeyword.addEventListener('click', function(e) {
 
         imageOne.setAttribute('src', poster)
         divTwo.appendChild(imageOne);
-
 
         var divSeven = document.createElement('div');
         divSeven.setAttribute('class', 'titleRating');
