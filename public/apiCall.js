@@ -192,7 +192,7 @@ var apiCall = function(route) {
 pagination();
 var currentSection;
 window.onload = function() {
-  // $('.paginationList:gt(4)').hide();
+  $('.paginationList:gt(4)').hide();
   $('.pagination li:nth-child(1)').addClass('active');
   apiCall("nowPlaying");
   currentSection = "nowPlaying";
@@ -417,7 +417,7 @@ $('#searchButton').click(function(){
 
 $('.selectInput').on('change', function(){
   hidden();
-  $('.pagination').hide();
+  // $('.pagination').hide();
   $('#filter-results').show();
 })
 
@@ -425,10 +425,6 @@ $('#keywordInput').click(function(){
   hidden();
   $('.pagination').hide();
   $('#filter-results').show();
-})
-
-$('.pagination li a').on('click', function(){
-  $(this).parent().addClass('active').siblings().removeClass('active');
 })
 
 $('.section').on('click', function(){
@@ -455,7 +451,7 @@ $('.pagerValue').on('click', function(){
 });
 
 
-$('.paginationList:gt(4)').hide();
+// $('.paginationList:gt(4)').hide();
 $('#clickPrev').click(function() {
     var first = $('.pagerValue:visible:first');
     var firstListItem = first.parent('.paginationList');
@@ -469,6 +465,10 @@ $('#clickNext').click(function() {
     lastListItem.nextAll(':lt(5)').show();
     lastListItem.next().prevAll().hide(); 
 });
+
+$('.pagination li a').on('click', function(){
+  $(this).parent().addClass('active').siblings().removeClass('active');
+})
 
 
 }); //End JQuery
