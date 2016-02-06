@@ -6,5 +6,5 @@ app.use(express.static('public'));
 
 app.use('/movie', tmdb);
 
-app.listen(1337);
-console.log('1337 is Listening');
+var port = process.env.PORT || 1337;
+app.listen(port);
