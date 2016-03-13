@@ -11,31 +11,35 @@
   <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
 </head>
 <body style="background-color: #eee">
+
   <div class="#" id="background-one">
     <div class="container">
-     <h1 class="text-center" id="mainTitle">MoviePass</h1><br>
-   </div>       
-   <div id="searchArea">
-    <form class="" id="searchForm">
-      <div class="searchField">
-        <input type="text" class="center-block" autocomplete="off" placeholder="Search Movies" value="" name="search" id="searchText"><br>
-        <button type="submit" class="center-block" id="searchButton" value="Find Movies">Find Movies</button>
-      </div>
-    </form>
+     <h1 class="text-center" id="mainTitle">MoviePass</h1>
+    </div>       
+    <div id="searchArea">
+      <form class="" id="searchForm">
+        <div class="searchField">
+          <input type="text" class="center-block" autocomplete="off" placeholder="Search Movies" value="" name="search" id="searchText">
+          <button type="submit" class="center-block" id="searchButton" value="Find Movies">Find Movies</button>
+        </div>
+      </form>
+    </div>
   </div>
-</div>
-<div class="navbar navbar-inverse navbar-static-top" role="navigation">
-</div>
-<div class="container" id="navigateOne">
-  <div class="col-md-12">
-    <ul class="list-inline">
-      <li class="#"><a href="#" class="section" id="nowPlaying">Now Playing</a></li>
-      <li class="#"><a href="#" class="section" id="popular">Popular Movies</a></li>
-      <li class="#"><a href="#" class="section" id="topRated">Top Rated Movies</a></li>
-      <li class="#"><a href="#" class="section" id="upComing">Upcoming Movies</a></li>
-    </ul>
-  </div><br>
-  <form id="discover"><br>
+
+  <div class="navbar navbar-inverse navbar-static-top" role="navigation">
+  </div>
+
+  <div class="container" id="navigateOne">
+    <div class="col-md-12">
+      <ul class="list-inline">
+        <li class="#"><a href="#" class="section" id="nowPlaying">Now Playing</a></li>
+        <li class="#"><a href="#" class="section" id="popular">Popular Movies</a></li>
+        <li class="#"><a href="#" class="section" id="topRated">Top Rated Movies</a></li>
+        <li class="#"><a href="#" class="section" id="upComing">Upcoming Movies</a></li>
+      </ul>
+    </div>
+
+    <form id="discover">
     <div class="col-sm-2 filterBox" id="">
       <h4>Year</h4>
       <div class="select">
@@ -55,7 +59,27 @@
       <h4>Genres</h4>
       <div class="select">
         <select class="selectInput" id="genreInput">
-          <option value="">Select Genre</option><option value="28">Action</option><option value="12">Adventure</option><option value="16">Animation</option><option value="35">Comedy</option><option value="80">Crime</option><option value="99">Documentary</option><option value="18">Drama</option><option value="10751">Family</option><option value="14">Fantasy</option><option value="10769">Foreign</option><option value="36">History</option><option value="27">Horror</option><option value="10402">Music</option><option value="9648">Mystery</option><option value="10749">Romance</option><option value="878">Science Fiction</option><option value="10770">TV Movie</option><option value="53">Thriller</option><option value="10752">War</option><option value="37">Western</option>
+          <option value="">Select Genre</option>
+          <option value="28">Action</option>
+          <option value="12">Adventure</option>
+          <option value="16">Animation</option>
+          <option value="35">Comedy</option>
+          <option value="80">Crime</option>
+          <option value="99">Documentary</option>
+          <option value="18">Drama</option>
+          <option value="10751">Family</option>
+          <option value="14">Fantasy</option>
+          <option value="10769">Foreign</option>
+          <option value="36">History</option>
+          <option value="27">Horror</option>
+          <option value="10402">Music</option>
+          <option value="9648">Mystery</option>
+          <option value="10749">Romance</option>
+          <option value="878">Science Fiction</option>
+          <option value="10770">TV Movie</option>
+          <option value="53">Thriller</option>
+          <option value="10752">War</option>
+          <option value="37">Western</option>
         </select>
       </div>
     </div>
@@ -66,39 +90,39 @@
       </div>
     </div>
     <button type="submit" class="center-block" id="genreButton" value="Find Movies"></button>
-  </form>
-  <div class="col-md-12"><br>
-    <h3 href="#" id="now-playing">Now Playing in Theaters...</h3>
-    <h3 href="#" id="popular-movies">Popular Movies...</h3>
-    <h3 href="#" id="top-movies">Top Rated Movies...</h3>
-    <h3 href="#" id="upcoming-movies">Upcoming Movies...</h3>
-    <h3 href="#" id="search-results">Search Results...</h3>
-    <h3 href="#" id="filter-results">Filters Results...</h3>
-  </div>
-  <div>
-    <p id="searchResult"></p>
-  </div>
-  <div id="nowPlayingPage"> 
-  </div>
-</div>
-<div class="container">
-  <div class="col-sm-12" id="pageDirection">
-    <div class="col-sm-offset-10 pull-right">
-      <a class="clickDirection" id="clickPrev">Previous</a> | <a class="clickDirection" id="clickNext">Next</a>
+    </form>
+    <div class="col-md-12">
+      <h3 href="#" id="now-playing">Now Playing in Theaters...</h3>
+      <h3 href="#" id="popular-movies">Popular Movies...</h3>
+      <h3 href="#" id="top-movies">Top Rated Movies...</h3>
+      <h3 href="#" id="upcoming-movies">Upcoming Movies...</h3>
+      <h3 href="#" id="search-results">Search Results...</h3>
+      <h3 href="#" id="filter-results">Filters Results...</h3>
+    </div>
+    <div>
+      <p id="searchResult"></p>
+    </div>
+    <div id="nowPlayingPage"> 
     </div>
   </div>
-</div><br>
-<div class="navbar navbar-default navbar-static-bottom" role="navigation">
-  <p class="navbar-text pull left">@ 2015 MoviePass</p>
-  <a href="https://www.youtube.com" class="navbar-btn btn btn-danger">Subscribe to Youtube</a>
-  <div class="navbar-text pull-right">
-    <a href="#"><i class="fa fa-facebook-square fa-2x" id="footer-note"></i></a>
-    <a href="#"><i class="fa fa-twitter fa-2x" id="footer-note"></i></a>
-    <a href="#"><i class="fa fa-google-plus fa-2x" id="footer-note"></i></a>
-    <a href="#"><i class="fa fa-instagram fa-2x" id="footer-note"></i></a>
-    <a href="#"><i class="fa fa-linkedin-square fa-2x" id="footer-note"></i></a>
+  <div class="container">
+    <div class="col-sm-12" id="pageDirection">
+      <div class="col-sm-offset-10 pull-right">
+        <a class="clickDirection" id="clickPrev">Previous</a> | <a class="clickDirection" id="clickNext">Next</a>
+      </div>
+    </div>
   </div>
-</div>
+  <div class="navbar navbar-default navbar-static-bottom" role="navigation">
+    <p class="navbar-text pull left">@ 2015 MoviePass</p>
+    <a href="https://www.youtube.com" class="navbar-btn btn btn-danger">Subscribe to Youtube</a>
+    <div class="navbar-text pull-right">
+      <a href="#"><i class="fa fa-facebook-square fa-2x" id="footer-note"></i></a>
+      <a href="#"><i class="fa fa-twitter fa-2x" id="footer-note"></i></a>
+      <a href="#"><i class="fa fa-google-plus fa-2x" id="footer-note"></i></a>
+      <a href="#"><i class="fa fa-instagram fa-2x" id="footer-note"></i></a>
+      <a href="#"><i class="fa fa-linkedin-square fa-2x" id="footer-note"></i></a>
+    </div>
+  </div>
 <script src="apiCall.js"></script>
 <script src="filter.js"></script>
 </body>

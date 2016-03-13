@@ -186,7 +186,7 @@ var apiCall = function(route) {
   };
   
   console.log('http://localhost:1337/movie/' + route);
-  xhr.open('POST', 'http://localhost:1337/movie/' + route, true);
+  xhr.open('POST', '/movie/' + route, true);
   xhr.send(null);
 }
 pagination();
@@ -367,7 +367,7 @@ clickSearch.addEventListener('click', function(e) {
     }
   };
   var keyword = document.getElementById('searchText').value;
-  xhr.open('POST', 'http://localhost:1337/movie/search', true);
+  xhr.open('POST', '/movie/search', true);
   xhr.send(keyword);
 }, false);
 
