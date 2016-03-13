@@ -156,7 +156,7 @@ var xhr = new XMLHttpRequest();
 
   var filterJSON = JSON.stringify(filter);
   console.log(filterJSON);
-  xhr.open('POST', 'http://localhost:1337/movie/filter/', true);
+  xhr.open('POST', '/movie/filter/', true);
   xhr.send(filterJSON);  
 
 });
@@ -304,7 +304,7 @@ clickKeyword.addEventListener('click', function(e) {
     }
   };
   var keyword = document.getElementById('keywordInput').value;
-  xhr.open('POST', 'http://localhost:1337/movie/search', true);
+  xhr.open('POST', '/movie/search', true);
   xhr.send(keyword);
 }, false);
 
