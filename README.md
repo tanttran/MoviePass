@@ -1,7 +1,7 @@
 # MoviePass
-A website for people who wants to find informations about movies before they commit themselves into a lengthy movie.
+A website for people who wants to find brief informations about movies.
 
-Demo - https://calm-sierra-38135.herokuapp.com/
+Demo - https://mooviepass.herokuapp.com/
 
-<img src="public/image/movie-page1.png">
-<img src="public/image/movie-page2.png">
+<img src="public/image/moviescreen1.png">
+<img src="public/image/moviescreen2.png">
